@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>for my favorite human 💌</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Poppins', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #f9d8e4 0%, #fbc2c2 40%, #fce4c8 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            margin: 0;
+            color: #3e2c3a;
+            position: relative;
+        }
+
+        /* subtle hearts background */
+        body::before {
+            content: "❤️💛💚💙💜";
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-size: 2.2rem;
+            opacity: 0.15;
+            white-space: pre;
+            pointer-events: none;
+            transform: rotate(-3deg);
+            letter-spacing: 12px;
+            z-index: 0;
+        }
+
+        .main-card {
+            width: 100%;
+            max-width: 500px;
+            background: rgba(255, 245, 250, 0.7);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-radius: 3rem;
+            padding: 2.8rem 1.8rem;
+            box-shadow: 0 25px 40px rgba(180, 100, 120, 0.3), 0 0 0 1px rgba(255,255,255,0.6);
+            text-align: center;
+            z-index: 2;
+            position: relative;
+            border: 2px solid rgba(255, 220, 230, 0.8);
+        }
+
+        .sticker {
+            font-size: 3.2rem;
+            margin-bottom: 0.2rem;
+            filter: drop-shadow(0 6px 8px rgba(0,0,0,0.1));
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #b44666;
+            margin-bottom: 0.3rem;
+            letter-spacing: -0.5px;
+            text-shadow: 2px 2px 0 rgba(255,255,255,0.7);
+        }
+
+        .sub {
+            font-size: 1.1rem;
+            color: #7b4b5e;
+            margin-bottom: 2rem;
+            font-style: italic;
+            background: rgba(255,255,255,0.5);
+            display: inline-block;
+            padding: 0.3rem 1.6rem;
+            border-radius: 30px;
+        }
+
+        .cute-box {
+            background: rgba(255, 240, 245, 0.7);
+            border-radius: 2rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border: 1px dashed #f7a8b8;
+            backdrop-filter: blur(8px);
+        }
+
+        .btn {
+            background: #ff5e7e;
+            color: white;
+            border: none;
+            padding: 1rem 2.2rem;
+            border-radius: 3rem;
+            font-weight: 700;
+            font-size: 1.15rem;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            box-shadow: 0 12px 20px -8px rgba(255, 70, 100, 0.5);
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 2px solid white;
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            background: #ff3b62;
+            transform: translateY(-3px);
+            box-shadow: 0 20px 25px -6px #ff7799;
+        }
+
+        .btn:active {
+            transform: translateY(2px);
+        }
+
+        /* CHAT POPUP (friendly design) */
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(10px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            padding: 1rem;
+        }
+
+        .popup-content {
+            background: #fff9fb;
+            border-radius: 2.2rem;
+            max-width: 450px;
+            width: 100%;
+            padding: 1.8rem 1.5rem;
+            box-shadow: 0 30px 45px rgba(200, 100, 130, 0.4);
+            border: 2px solid #ffd0da;
+            color: #30202b;
+            text-align: left;
+        }
+
+        .popup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.2rem;
+            border-bottom: 2px dotted #f7bfcc;
+            padding-bottom: 0.7rem;
+        }
+
+        .popup-header span {
+            font-weight: 600;
+            font-size: 1rem;
+            color: #c44b67;
+        }
+
+        .close-btn {
+            background: #ffeef2;
+            border: 1px solid #ffb6c1;
+            color: #b3445c;
+            padding: 0.35rem 1.1rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .close-btn:hover {
+            background: #ffd1d9;
+            color: #a02040;
+        }
+
+        #typewriter {
+            max-height: 350px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 0.95rem;
+            padding-right: 3px;
+        }
+
+        .message {
+            background: #ffeff3;
+            padding: 0.8rem 1.2rem;
+            border-radius: 1.4rem 1.4rem 1.4rem 0.3rem;
+            width: fit-content;
+            max-width: 85%;
+            color: #2d1e26;
+            border: 1px solid #ffcfda;
+            box-shadow: 0 4px 8px rgba(220, 120, 140, 0.2);
+            line-height: 1.5;
+            word-break: break-word;
+            font-weight: 500;
+        }
+
+        .typing {
+            opacity: 0.8;
+            font-style: italic;
+            background: #fce4ec;
+            padding: 0.5rem 1.2rem;
+            border-radius: 1rem;
+            width: fit-content;
+            color: #b3546c;
+            font-size: 0.8rem;
+            letter-spacing: 0.3px;
+        }
+
+        /* confetti – colorful little dots */
+        .confetti {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            top: -10px;
+            border-radius: 50%;
+            animation: sprinkle 3.2s linear forwards;
+            z-index: 200;
+            pointer-events: none;
+            box-shadow: 0 0 8px currentColor;
+        }
+
+        @keyframes sprinkle {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(105vh) rotate(600deg);
+                opacity: 0;
+            }
+        }
+
+        .signature {
+            margin-top: 1.8rem;
+            font-size: 0.85rem;
+            color: #b45f7a;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-card">
+        <div class="sticker">🐸💐</div>
+        <h1>hey you</h1>
+        <div class="sub">open when you need a smile</div>
+
+        <div class="cute-box">
+            <p style="font-weight: 500;">📎 I made you a tiny surprise...</p>
+            <p style="font-size: 0.8rem; opacity: 0.8; margin-top: 0.3rem;">(it’s 93% nonsense and 100% affection)</p>
+        </div>
+
+        <button class="btn" id="surpriseBtn">
+            <span>💖</span> tap for joy
+        </button>
+        <div class="signature">
+            — your personal hype human ✨
+        </div>
+    </div>
+
+    <!-- FRIENDLY CHAT POPUP -->
+    <div class="popup" id="chatPopup">
+        <div class="popup-content">
+            <div class="popup-header">
+                <span>💬 bestie hotline</span>
+                <button class="close-btn" id="closePopupBtn">✕ close</button>
+            </div>
+            <div id="typewriter"></div>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // ---- FUNNY & FRIENDLY MESSAGE SEQUENCE ----
+            const messages = [
+                "knock knock 🚪😌...",
+                "it's me, your unofficial life coach 🥸",
+                "I ran some very scientific calculations 🧪...",
+                "and you are officially: ridiculously cool 😎✨",
+                "but there's one tiny issue I need to address...",
+                "your bookshelf is looking a little sad 📚😔",
+                "like 'one paperback and a lonely receipt' sad 🧾😂",
+                "I'm not saying you need a library... but I'm also not not saying that 🤓",
+                "because imagine us in ten years: you, rich & powerful 💰🌟",
+                "and me, bragging: 'I told them to read more books' 📖☕",
+                "so go adopt a book. any book. I'll wait. 😌💕",
+                "that's it. that's the whole message. love youuuu 💌"
+            ];
+
+            let msgIndex = 0;
+            let isTyping = false;
+            let typingTimer = null;
+
+            const popup = document.getElementById('chatPopup');
+            const typewriterDiv = document.getElementById('typewriter');
+            const openBtn = document.getElementById('surpriseBtn');
+            const closeBtn = document.getElementById('closePopupBtn');
+
+            function openPopup() {
+                if (!popup) return;
+                popup.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                throwConfetti();
+
+                if (!isTyping) {
+                    // reset everything for fresh start
+                    clearChat();
+                    msgIndex = 0;
+                    isTyping = true;
+                    nextMessage();
+                }
+            }
+
+            function closePopup() {
+                if (!popup) return;
+                popup.style.display = 'none';
+                document.body.style.overflow = '';
+                if (typingTimer) clearTimeout(typingTimer);
+                isTyping = false;
+            }
+
+            function clearChat() {
+                if (typewriterDiv) typewriterDiv.innerHTML = '';
+                if (typingTimer) {
+                    clearTimeout(typingTimer);
+                    typingTimer = null;
+                }
+                isTyping = false;
+            }
+
+            function nextMessage() {
+                if (!typewriterDiv || msgIndex >= messages.length) {
+                    isTyping = false;
+                    return;
+                }
+
+                // show "is typing..." bubble
+                const typingEl = document.createElement('div');
+                typingEl.className = 'typing';
+                typingEl.innerText = '✨ typing something silly...';
+                typewriterDiv.appendChild(typingEl);
+                typewriterDiv.scrollTop = typewriterDiv.scrollHeight;
+
+                const typingDelay = 700 + Math.random() * 900;
+                setTimeout(() => {
+                    if (typewriterDiv.contains(typingEl)) {
+                        typewriterDiv.removeChild(typingEl);
+                    }
+                    // type the actual message
+                    typeMessage(messages[msgIndex], () => {
+                        msgIndex++;
+                        typingTimer = setTimeout(() => {
+                            nextMessage();
+                        }, 1100);
+                    });
+                }, typingDelay);
+            }
+
+            function typeMessage(text, callback) {
+                if (!typewriterDiv) return;
+                const bubble = document.createElement('div');
+                bubble.className = 'message';
+                typewriterDiv.appendChild(bubble);
+                typewriterDiv.scrollTop = typewriterDiv.scrollHeight;
+
+                let i = 0;
+                function typeChar() {
+                    if (i < text.length) {
+                        bubble.textContent += text.charAt(i);
+                        i++;
+                        typewriterDiv.scrollTop = typewriterDiv.scrollHeight;
+                        const speed = 30 + Math.random() * 45;
+                        typingTimer = setTimeout(typeChar, speed);
+                    } else {
+                        if (callback) callback();
+                    }
+                }
+                typeChar();
+            }
+
+            // colorful confetti shower
+            function throwConfetti() {
+                const colors = ['#ff6b9d', '#f9c74f', '#90be6d', '#577590', '#f9844a', '#f94144', '#b56576', '#e5989b'];
+                for (let i = 0; i < 55; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.backgroundColor = color;
+                    confetti.style.color = color; // for box-shadow
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.width = (Math.random() * 10 + 5) + 'px';
+                    confetti.style.height = (Math.random() * 10 + 5) + 'px';
+                    confetti.style.animationDuration = (Math.random() * 2.5 + 2.8) + 's';
+                    confetti.style.animationDelay = Math.random() * 0.7 + 's';
+                    document.body.appendChild(confetti);
+
+                    setTimeout(() => {
+                        if (confetti && confetti.parentNode) confetti.remove();
+                    }, 4000);
+                }
+            }
+
+            // Event listeners
+            if (openBtn) openBtn.addEventListener('click', openPopup);
+            if (closeBtn) closeBtn.addEventListener('click', closePopup);
+            if (popup) {
+                popup.addEventListener('click', function(e) {
+                    if (e.target === popup) closePopup();
+                });
+            }
+            window.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && popup && popup.style.display === 'flex') {
+                    closePopup();
+                }
+            });
+
+            window.addEventListener('beforeunload', () => {
+                if (typingTimer) clearTimeout(typingTimer);
+            });
+        })();
+    </script>
+</body>
+</html>
