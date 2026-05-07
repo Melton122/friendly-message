@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>for my favorite human 💌</title>
+    <title>for my favorite time traveler 🔮</title>
     <style>
         * {
             margin: 0;
@@ -22,16 +22,16 @@
             margin: 0;
             color: #3e2c3a;
             position: relative;
+            overflow-x: hidden;
         }
 
-        /* subtle hearts background */
         body::before {
             content: "❤️💛💚💙💜";
             position: fixed;
             top: 20px;
             left: 20px;
             font-size: 2.2rem;
-            opacity: 0.15;
+            opacity: 0.12;
             white-space: pre;
             pointer-events: none;
             transform: rotate(-3deg);
@@ -106,6 +106,7 @@
             gap: 0.5rem;
             border: 2px solid white;
             text-transform: uppercase;
+            margin: 0.5rem;
         }
 
         .btn:hover {
@@ -118,7 +119,26 @@
             transform: translateY(2px);
         }
 
-        /* CHAT POPUP (friendly design) */
+        .music-btn {
+            background: #fff0f5;
+            color: #b3445c;
+            border: 2px solid #ffb6c1;
+            padding: 0.5rem 1.2rem;
+            border-radius: 2.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            box-shadow: 0 4px 12px rgba(200,120,140,0.2);
+        }
+        .music-btn.playing {
+            background: #ffe0e8;
+            border-color: #ff8da1;
+        }
+
         .popup {
             position: fixed;
             top: 0;
@@ -144,6 +164,7 @@
             border: 2px solid #ffd0da;
             color: #30202b;
             text-align: left;
+            position: relative;
         }
 
         .popup-header {
@@ -153,12 +174,6 @@
             margin-bottom: 1.2rem;
             border-bottom: 2px dotted #f7bfcc;
             padding-bottom: 0.7rem;
-        }
-
-        .popup-header span {
-            font-weight: 600;
-            font-size: 1rem;
-            color: #c44b67;
         }
 
         .close-btn {
@@ -172,10 +187,8 @@
             cursor: pointer;
             transition: 0.2s;
         }
-
         .close-btn:hover {
             background: #ffd1d9;
-            color: #a02040;
         }
 
         #typewriter {
@@ -211,11 +224,47 @@
             width: fit-content;
             color: #b3546c;
             font-size: 0.8rem;
-            letter-spacing: 0.3px;
         }
 
-        /* confetti – colorful little dots */
-        .confetti {
+        #loadingScreen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        .glitch-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #b44666;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 0 #ffb3c6;
+            animation: glitch 0.8s infinite alternate;
+        }
+        @keyframes glitch {
+            0% { transform: translate(1px, 1px); }
+            100% { transform: translate(-1px, -1px); }
+        }
+        .progress-bar {
+            width: 80%;
+            height: 10px;
+            background: #fdd;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #ffb6c1;
+        }
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+            background: #ff6b8b;
+            transition: width 0.5s ease;
+            border-radius: 10px;
+        }
+
+        .confetti-main {
             position: fixed;
             width: 8px;
             height: 8px;
@@ -226,19 +275,25 @@
             pointer-events: none;
             box-shadow: 0 0 8px currentColor;
         }
-
         @keyframes sprinkle {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 1;
-            }
-            90% {
-                opacity: 0.8;
-            }
-            100% {
-                transform: translateY(105vh) rotate(600deg);
-                opacity: 0;
-            }
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            90% { opacity: 0.8; }
+            100% { transform: translateY(105vh) rotate(600deg); opacity: 0; }
+        }
+
+        .mini-confetti {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            border-radius: 2px;
+            pointer-events: none;
+            z-index: 300;
+            animation: miniBurst 0.9s ease-out forwards;
+            box-shadow: 0 0 6px rgba(255,105,180,0.7);
+        }
+        @keyframes miniBurst {
+            0% { transform: translate(0, 0) scale(1); opacity: 1; }
+            100% { transform: translate(var(--dx), var(--dy)) scale(0.3); opacity: 0; }
         }
 
         .signature {
@@ -252,48 +307,57 @@
     <div class="main-card">
         <div class="sticker">🐸💐</div>
         <h1>hey you</h1>
-        <div class="sub">open when you need a smile</div>
+        <div class="sub">open when you need a smile from 2035</div>
 
         <div class="cute-box">
-            <p style="font-weight: 500;">📎 I made you a tiny surprise...</p>
-            <p style="font-size: 0.8rem; opacity: 0.8; margin-top: 0.3rem;">(it’s 93% nonsense and 100% affection)</p>
+            <p style="font-weight: 500;">📎 a tiny time capsule for you...</p>
+            <p style="font-size: 0.8rem; opacity: 0.8; margin-top: 0.3rem;">(93% nonsense, 100% accurate future predictions)</p>
         </div>
 
         <button class="btn" id="surpriseBtn">
-            <span>💖</span> tap for joy
+            <span>🔮</span> receive future memo
         </button>
+        <div style="margin-top: 1rem;">
+            <button class="music-btn" id="musicToggle">
+                <span>🎵</span> lofi mode
+            </button>
+        </div>
         <div class="signature">
             — your personal hype human ✨
         </div>
     </div>
 
-    <!-- FRIENDLY CHAT POPUP -->
     <div class="popup" id="chatPopup">
         <div class="popup-content">
             <div class="popup-header">
-                <span>💬 bestie hotline</span>
+                <span>💬 melly hotline (encrypted)</span>
                 <button class="close-btn" id="closePopupBtn">✕ close</button>
             </div>
-            <div id="typewriter"></div>
+            <div id="loadingScreen">
+                <div class="glitch-text">📡 connecting to 2035...</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <p style="font-size:0.8rem; color:#b3546c;">decrypting future vibes</p>
+            </div>
+            <div id="typewriter" style="display: none;"></div>
         </div>
     </div>
 
     <script>
         (function() {
-            // ---- FUNNY & FRIENDLY MESSAGE SEQUENCE ----
             const messages = [
-                "knock knock 🚪😌...",
-                "it's me, your unofficial life coach 🥸",
-                "I ran some very scientific calculations 🧪...",
-                "and you are officially: ridiculously cool 😎✨",
-                "but there's one tiny issue I need to address...",
-                "your bookshelf is looking a little sad 📚😔",
-                "like 'one paperback and a lonely receipt' sad 🧾😂",
-                "I'm not saying you need a library... but I'm also not not saying that 🤓",
-                "because imagine us in ten years: you, rich & powerful 💰🌟",
-                "and me, bragging: 'I told them to read more books' 📖☕",
-                "so go adopt a book. any book. I'll wait. 😌💕",
-                "that's it. that's the whole message. love youuuu 💌"
+                "🔐 transmission from 2035:",
+                "hey, it's your future self (well, sort of) 👋😌",
+                "I hacked back through time to tell you something important...",
+                "you're going to be INSANELY successful 💼🚀",
+                "like, 'owns a private island' level successful 🏝️😂",
+                "but before all that, there's one tiny thing...",
+                "READ. MORE. BOOKS. 📚✨",
+                "I'm literally begging you — your future yacht depends on it 🛥️😭",
+                "because in 2035, I'm bragging to everyone: 'I knew them when they still used bookmarks' 📖☕",
+                "so go grab a book. any book. I believe in you 💌",
+                "end of transmission. future you out. 🌟"
             ];
 
             let msgIndex = 0;
@@ -302,22 +366,172 @@
 
             const popup = document.getElementById('chatPopup');
             const typewriterDiv = document.getElementById('typewriter');
+            const loadingScreen = document.getElementById('loadingScreen');
+            const progressFill = document.getElementById('progressFill');
             const openBtn = document.getElementById('surpriseBtn');
             const closeBtn = document.getElementById('closePopupBtn');
+            const musicToggle = document.getElementById('musicToggle');
 
+            // ---- SHARED AUDIO CONTEXT ----
+            let audioCtx = null;
+            let musicInterval = null;
+            let isMusicPlaying = false;
+
+            function initAudioContext() {
+                if (!audioCtx) {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                }
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+                return audioCtx;
+            }
+
+            // ---- PLAY A NOTIFICATION CHIME (when a message appears) ----
+            function playMessageChime() {
+                try {
+                    const ctx = initAudioContext();
+                    const now = ctx.currentTime;
+
+                    // two quick soft tones (like a little "ding-ding")
+                    const frequencies = [587.33, 783.99]; // D5, G5
+                    frequencies.forEach((freq, index) => {
+                        const osc = ctx.createOscillator();
+                        const gain = ctx.createGain();
+                        osc.type = 'sine';
+                        osc.frequency.value = freq;
+                        gain.gain.setValueAtTime(0.12, now + index * 0.08);
+                        gain.gain.exponentialRampToValueAtTime(0.001, now + index * 0.08 + 0.2);
+                        osc.connect(gain);
+                        gain.connect(ctx.destination);
+                        osc.start(now + index * 0.08);
+                        osc.stop(now + index * 0.08 + 0.25);
+                    });
+                } catch (e) {
+                    // Silently fail if audio not allowed
+                }
+            }
+
+            // ---- MUSIC PLAYER (lofi) ----
+            function playLoFi() {
+                if (isMusicPlaying) return;
+                const ctx = initAudioContext();
+                const gainNode = ctx.createGain();
+                gainNode.gain.value = 0.08;
+                gainNode.connect(ctx.destination);
+
+                const notes = [261.63, 329.63, 392.00, 493.88];
+                let noteIndex = 0;
+                const stepTime = 0.7;
+
+                function scheduleNote() {
+                    const freq = notes[noteIndex % notes.length];
+                    const osc = ctx.createOscillator();
+                    const noteGain = ctx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.value = freq;
+                    noteGain.gain.value = 0.25;
+                    osc.connect(noteGain);
+                    noteGain.connect(gainNode);
+                    const now = ctx.currentTime;
+                    osc.start(now);
+                    osc.stop(now + 0.4);
+                    noteGain.gain.setValueAtTime(0.25, now);
+                    noteGain.gain.exponentialRampToValueAtTime(0.001, now + 0.4);
+                    noteIndex++;
+                }
+
+                scheduleNote();
+                musicInterval = setInterval(scheduleNote, stepTime * 1000);
+                isMusicPlaying = true;
+                musicToggle.classList.add('playing');
+                musicToggle.innerHTML = '<span>🎵</span> chill on';
+            }
+
+            function stopLoFi() {
+                if (musicInterval) {
+                    clearInterval(musicInterval);
+                    musicInterval = null;
+                }
+                isMusicPlaying = false;
+                musicToggle.classList.remove('playing');
+                musicToggle.innerHTML = '<span>🎵</span> lofi mode';
+            }
+
+            function toggleMusic() {
+                if (isMusicPlaying) {
+                    stopLoFi();
+                } else {
+                    playLoFi();
+                }
+            }
+
+            // ---- MINI CONFETTI ----
+            function miniConfetti(bubbleElement) {
+                if (!bubbleElement) return;
+                const rect = bubbleElement.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                const colors = ['#ff6b9d','#f9c74f','#90be6d','#577590','#f9844a','#e5989b','#b56576'];
+
+                for (let i = 0; i < 8; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'mini-confetti';
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    particle.style.backgroundColor = color;
+                    particle.style.left = centerX + 'px';
+                    particle.style.top = centerY + 'px';
+                    const angle = Math.random() * 2 * Math.PI;
+                    const distance = 30 + Math.random() * 50;
+                    const dx = Math.cos(angle) * distance;
+                    const dy = Math.sin(angle) * distance - 20;
+                    particle.style.setProperty('--dx', dx + 'px');
+                    particle.style.setProperty('--dy', dy + 'px');
+                    document.body.appendChild(particle);
+                    setTimeout(() => {
+                        if (particle.parentNode) particle.remove();
+                    }, 950);
+                }
+            }
+
+            // ---- LOADING & MESSAGE FLOW ----
             function openPopup() {
                 if (!popup) return;
                 popup.style.display = 'flex';
                 document.body.style.overflow = 'hidden';
                 throwConfetti();
 
-                if (!isTyping) {
-                    // reset everything for fresh start
-                    clearChat();
-                    msgIndex = 0;
-                    isTyping = true;
-                    nextMessage();
-                }
+                clearChat();
+                msgIndex = 0;
+                isTyping = false;
+                if (typewriterDiv) typewriterDiv.style.display = 'none';
+                if (loadingScreen) loadingScreen.style.display = 'flex';
+                if (progressFill) progressFill.style.width = '0%';
+
+                simulateLoading();
+            }
+
+            function simulateLoading() {
+                let progress = 0;
+                const fill = document.getElementById('progressFill');
+                const interval = setInterval(() => {
+                    progress += Math.random() * 25 + 5;
+                    if (progress >= 100) {
+                        progress = 100;
+                        if (fill) fill.style.width = '100%';
+                        clearInterval(interval);
+                        setTimeout(() => {
+                            if (loadingScreen) loadingScreen.style.display = 'none';
+                            if (typewriterDiv) typewriterDiv.style.display = 'flex';
+                            if (!isTyping) {
+                                isTyping = true;
+                                nextMessage();
+                            }
+                        }, 400);
+                    } else {
+                        if (fill) fill.style.width = progress + '%';
+                    }
+                }, 250);
             }
 
             function closePopup() {
@@ -343,26 +557,24 @@
                     return;
                 }
 
-                // show "is typing..." bubble
                 const typingEl = document.createElement('div');
                 typingEl.className = 'typing';
-                typingEl.innerText = '✨ typing something silly...';
+                typingEl.innerText = '✨ decrypting message...';
                 typewriterDiv.appendChild(typingEl);
                 typewriterDiv.scrollTop = typewriterDiv.scrollHeight;
 
-                const typingDelay = 700 + Math.random() * 900;
+                const delay = 700 + Math.random() * 800;
                 setTimeout(() => {
                     if (typewriterDiv.contains(typingEl)) {
                         typewriterDiv.removeChild(typingEl);
                     }
-                    // type the actual message
                     typeMessage(messages[msgIndex], () => {
                         msgIndex++;
                         typingTimer = setTimeout(() => {
                             nextMessage();
-                        }, 1100);
+                        }, 1000);
                     });
-                }, typingDelay);
+                }, delay);
             }
 
             function typeMessage(text, callback) {
@@ -378,53 +590,41 @@
                         bubble.textContent += text.charAt(i);
                         i++;
                         typewriterDiv.scrollTop = typewriterDiv.scrollHeight;
-                        const speed = 30 + Math.random() * 45;
+                        const speed = 30 + Math.random() * 40;
                         typingTimer = setTimeout(typeChar, speed);
                     } else {
+                        // 🎵 Play sound when message finishes typing
+                        playMessageChime();
+                        miniConfetti(bubble);
                         if (callback) callback();
                     }
                 }
                 typeChar();
             }
 
-            // colorful confetti shower
             function throwConfetti() {
-                const colors = ['#ff6b9d', '#f9c74f', '#90be6d', '#577590', '#f9844a', '#f94144', '#b56576', '#e5989b'];
-                for (let i = 0; i < 55; i++) {
-                    const confetti = document.createElement('div');
-                    confetti.className = 'confetti';
-                    const color = colors[Math.floor(Math.random() * colors.length)];
-                    confetti.style.backgroundColor = color;
-                    confetti.style.color = color; // for box-shadow
-                    confetti.style.left = Math.random() * 100 + 'vw';
-                    confetti.style.width = (Math.random() * 10 + 5) + 'px';
-                    confetti.style.height = (Math.random() * 10 + 5) + 'px';
-                    confetti.style.animationDuration = (Math.random() * 2.5 + 2.8) + 's';
-                    confetti.style.animationDelay = Math.random() * 0.7 + 's';
-                    document.body.appendChild(confetti);
-
-                    setTimeout(() => {
-                        if (confetti && confetti.parentNode) confetti.remove();
-                    }, 4000);
+                const colors = ['#ff6b9d','#f9c74f','#90be6d','#577590','#f9844a','#e5989b','#b56576'];
+                for (let i=0; i<45; i++) {
+                    const conf = document.createElement('div');
+                    conf.className = 'confetti-main';
+                    conf.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
+                    conf.style.left = Math.random()*100 + 'vw';
+                    conf.style.animationDuration = (Math.random()*2 + 2.5) + 's';
+                    document.body.appendChild(conf);
+                    setTimeout(() => { if(conf.parentNode) conf.remove(); }, 3500);
                 }
             }
 
-            // Event listeners
-            if (openBtn) openBtn.addEventListener('click', openPopup);
-            if (closeBtn) closeBtn.addEventListener('click', closePopup);
-            if (popup) {
-                popup.addEventListener('click', function(e) {
-                    if (e.target === popup) closePopup();
-                });
-            }
-            window.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && popup && popup.style.display === 'flex') {
-                    closePopup();
-                }
-            });
+            // event listeners
+            openBtn.addEventListener('click', openPopup);
+            closeBtn.addEventListener('click', closePopup);
+            popup.addEventListener('click', (e) => { if (e.target === popup) closePopup(); });
+            window.addEventListener('keydown', (e) => { if (e.key === 'Escape' && popup.style.display === 'flex') closePopup(); });
+            musicToggle.addEventListener('click', toggleMusic);
 
             window.addEventListener('beforeunload', () => {
                 if (typingTimer) clearTimeout(typingTimer);
+                if (musicInterval) clearInterval(musicInterval);
             });
         })();
     </script>
