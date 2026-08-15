@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>For Amerie — My Forever 💍</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
-
         * {
             margin: 0;
             padding: 0;
@@ -27,7 +28,6 @@
             overflow-x: hidden;
         }
 
-        /* Floating hearts background */
         body::before {
             content: "";
             position: fixed;
@@ -456,46 +456,99 @@
             0%, 100% { filter: brightness(1) drop-shadow(0 0 2px gold); }
             50% { filter: brightness(1.3) drop-shadow(0 0 8px gold); }
         }
+
+        /* Audio visualizer bars */
+        .audio-visualizer {
+            display: none;
+            align-items: flex-end;
+            gap: 3px;
+            height: 18px;
+            margin-left: 4px;
+        }
+        .music-btn.playing .audio-visualizer {
+            display: flex;
+        }
+        .bar {
+            width: 3px;
+            background: #e91e63;
+            border-radius: 2px;
+            animation: barDance 0.6s ease-in-out infinite alternate;
+        }
+        .bar:nth-child(1) { height: 6px; animation-delay: 0s; }
+        .bar:nth-child(2) { height: 12px; animation-delay: 0.1s; }
+        .bar:nth-child(3) { height: 8px; animation-delay: 0.2s; }
+        .bar:nth-child(4) { height: 14px; animation-delay: 0.15s; }
+        @keyframes barDance {
+            from { transform: scaleY(0.4); }
+            to { transform: scaleY(1); }
+        }
     </style>
 </head>
 <body>
+    <!-- 
+    ============================================
+    HOW TO ADD "EASTSIDE" BY BENNY BLANCO:
+
+    Option 1 (Easiest): 
+    1. Download the MP3 of "Eastside"
+    2. Rename it to "oursong.mp3"
+    3. Put it in the SAME folder as this HTML file
+
+    Option 2 (YouTube):
+    Replace the audio src below with a YouTube embed URL
+
+    Option 3 (Spotify):
+    Use a Spotify embed iframe instead
+    ============================================
+    -->
+    <audio id="eastsideAudio" loop preload="auto">
+        <source src="oursong.mp3" type="audio/mpeg">
+        <!-- Fallback: If oursong.mp3 isn't found, the button will show a friendly message -->
+    </audio>
+
     <div class="main-card">
         <div class="sticker">💍✨</div>
         <h1>Amerie</h1>
-        <div class="sub">open when you're ready for forever</div>
+        <div class="sub">yesterday changed everything... and i'm not letting go</div>
 
         <div class="cute-box">
-            <p>I've been waiting my whole life to ask you this...</p>
-            <p>(heartfelt, slightly nervous, 100% genuine)</p>
+            <p>We're back together, and I never want to lose you again...</p>
+            <p>(this time, i'm asking for forever)</p>
         </div>
 
-        <button class="btn" id="surpriseBtn">
-            <span class="ring-emoji">💍</span> Open My Heart
+        <button class="btn" id="surpriseBtn" aria-haspopup="dialog">
+            <span class="ring-emoji" aria-hidden="true">💍</span> Read My Heart
         </button>
         <div style="margin-top: 1rem;">
-            <button class="music-btn" id="musicToggle">
-                <span>🎵</span> our song
+            <button class="music-btn" id="musicToggle" aria-pressed="false">
+                <span aria-hidden="true">🎵</span> <span id="musicLabel">play oursong</span>
+                <span class="audio-visualizer" aria-hidden="true">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </span>
             </button>
         </div>
         <div class="signature">
-            — the one who loves you most ❤️
+            — the one who fought for you ❤️
         </div>
     </div>
 
-    <div class="popup" id="chatPopup">
+    <div class="popup" id="chatPopup" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
         <div class="popup-content">
             <div class="popup-header">
-                <span>💌 A Message From My Heart</span>
-                <button class="close-btn" id="closePopupBtn">✕ close</button>
+                <span id="popupTitle">💌 What I've Been Dying to Say</span>
+                <button class="close-btn" id="closePopupBtn" aria-label="Close message">✕ close</button>
             </div>
             <div id="loadingScreen">
-                <div class="glitch-text">💭 Gathering my courage...</div>
-                <div class="progress-bar">
+                <div class="glitch-text">💭 Putting it all into words...</div>
+                <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Loading message">
                     <div class="progress-fill" id="progressFill"></div>
                 </div>
-                <p style="font-size:0.82rem; color:#b3546c; font-style:italic;">every word is true, I promise</p>
+                <p style="font-size:0.82rem; color:#b3546c; font-style:italic;">every word is how i really feel</p>
             </div>
-            <div id="typewriter" style="display: none;"></div>
+            <div id="typewriter" style="display: none;" aria-live="polite"></div>
         </div>
     </div>
 
@@ -503,30 +556,33 @@
         (function() {
             const messages = [
                 "Hey Amerie... 💭",
-                "I've been staring at this screen for way too long 😅",
-                "Not because I don't know what to say...",
-                "...but because there aren't enough words in the world 💫",
-                "From the moment I met you, everything changed ✨",
-                "You walked into my life like sunlight through curtains 🌅",
-                "Warm, golden, and impossible to ignore ☀️",
-                "I've laughed harder, loved deeper, and grown more because of you 🌱",
-                "You've seen me at my best and my worst 💪",
-                "And somehow, you chose to stay 🥺",
-                "That means everything to me. Literally everything 💎",
-                "I used to wonder what 'home' felt like 🏠",
-                "Turns out... it's your smile 😊",
-                "It's the way you laugh at my terrible jokes 😂",
-                "It's falling asleep knowing you're mine 🌙",
-                "It's waking up and choosing each other, every single day ☀️",
-                "Amerie, I don't want a life without you in it ❤️",
-                "I want your mornings and your nights 🌅🌃",
-                "I want your good days and your hard ones 🤝",
-                "I want to build something beautiful with you 🏗️✨",
-                "Something that lasts longer than both of us 💫",
-                "So here it is... no more waiting ⏳",
-                "No more 'someday' 📅",
-                "Just right now, and forever 💍",
-                "Amerie... will you marry me? 💍✨🥺"
+                "Yesterday, you said we're back together 🥺",
+                "And I haven't stopped smiling since 😊",
+                "But I need you to know something...",
+                "I don't just want us to be \"back\" ✋",
+                "I want us to be FOREVER 💫",
+                "When we were apart, I realized something 💡",
+                "My life doesn't work without you in it ❌➡️✅",
+                "The quiet moments felt too quiet 🌑",
+                "The good days didn't feel as good ☀️",
+                "And every love song reminded me of you 🎵",
+                "Especially ours... that one's ours now 🎧",
+                "You walked back into my life like you never left 🚪💨",
+                "And I knew — this is it. This is the one ☝️❤️",
+                "You're my person, Amerie 👫",
+                "The one I want to wake up next to every morning 🌅",
+                "The one I want to come home to every night 🌙",
+                "The one I want to build a life with 🏠",
+                "Through the highs, the lows, and everything between 📈📉",
+                "I want to be the reason you smile 😊",
+                "The arms you run to when the world gets heavy 🤗",
+                "The voice that says we got this when things get hard 💪",
+                "I'm not perfect. I'll mess up. I'll annoy you 😅",
+                "But I promise you this — I'll never stop choosing you 🎯",
+                "Every single day. For the rest of my life 📅➡️♾️",
+                "So here's the question I've been holding in... 💍",
+                "Amerie... will you marry me? 💍✨🥺",
+                "I love you. All of you. Always. ❤️"
             ];
 
             let msgIndex = 0;
@@ -540,10 +596,12 @@
             const openBtn = document.getElementById('surpriseBtn');
             const closeBtn = document.getElementById('closePopupBtn');
             const musicToggle = document.getElementById('musicToggle');
+            const musicLabel = document.getElementById('musicLabel');
+            const eastsideAudio = document.getElementById('eastsideAudio');
 
             let audioCtx = null;
-            let musicInterval = null;
             let isMusicPlaying = false;
+            let audioError = false;
 
             function initAudioContext() {
                 if (!audioCtx) {
@@ -559,7 +617,7 @@
                 try {
                     const ctx = initAudioContext();
                     const now = ctx.currentTime;
-                    const frequencies = [523.25, 659.25, 783.99]; // C5, E5, G5 (romantic major chord)
+                    const frequencies = [523.25, 659.25, 783.99];
                     frequencies.forEach((freq, index) => {
                         const osc = ctx.createOscillator();
                         const gain = ctx.createGain();
@@ -579,7 +637,6 @@
                 try {
                     const ctx = initAudioContext();
                     const now = ctx.currentTime;
-                    // Romantic arpeggio
                     const notes = [523.25, 659.25, 783.99, 1046.50, 783.99, 659.25, 523.25];
                     notes.forEach((freq, index) => {
                         const osc = ctx.createOscillator();
@@ -596,66 +653,46 @@
                 } catch (e) {}
             }
 
-            function playLoFi() {
-                if (isMusicPlaying) return;
-                const ctx = initAudioContext();
-                const gainNode = ctx.createGain();
-                gainNode.gain.value = 0.06;
-                gainNode.connect(ctx.destination);
-
-                // Romantic chord progression: C - G - Am - F
-                const chords = [
-                    [261.63, 329.63, 392.00],
-                    [196.00, 246.94, 293.66],
-                    [220.00, 261.63, 329.63],
-                    [174.61, 220.00, 261.63]
-                ];
-                let chordIndex = 0;
-                const stepTime = 2.5;
-
-                function scheduleChord() {
-                    const chord = chords[chordIndex % chords.length];
-                    chord.forEach((freq) => {
-                        const osc = ctx.createOscillator();
-                        const noteGain = ctx.createGain();
-                        osc.type = 'sine';
-                        osc.frequency.value = freq;
-                        noteGain.gain.value = 0.2;
-                        osc.connect(noteGain);
-                        noteGain.connect(gainNode);
-                        const now = ctx.currentTime;
-                        osc.start(now);
-                        osc.stop(now + 1.8);
-                        noteGain.gain.setValueAtTime(0.2, now);
-                        noteGain.gain.exponentialRampToValueAtTime(0.001, now + 1.8);
-                    });
-                    chordIndex++;
-                }
-
-                scheduleChord();
-                musicInterval = setInterval(scheduleChord, stepTime * 1000);
-                isMusicPlaying = true;
-                musicToggle.classList.add('playing');
-                musicToggle.innerHTML = '<span>🎵</span> playing';
-            }
-
-            function stopLoFi() {
-                if (musicInterval) {
-                    clearInterval(musicInterval);
-                    musicInterval = null;
-                }
-                isMusicPlaying = false;
-                musicToggle.classList.remove('playing');
-                musicToggle.innerHTML = '<span>🵵</span> our song';
-            }
-
             function toggleMusic() {
+                if (!eastsideAudio) {
+                    musicLabel.textContent = "add oursong.mp3 first";
+                    return;
+                }
+
+                // Check if audio file is actually loaded/available
+                if (eastsideAudio.error && eastsideAudio.error.code === 4) {
+                    audioError = true;
+                }
+
+                if (audioError || eastsideAudio.readyState === 0) {
+                    musicLabel.textContent = "drop oursong.mp3 in folder";
+                    setTimeout(() => { musicLabel.textContent = "play oursong"; }, 2500);
+                    return;
+                }
+
                 if (isMusicPlaying) {
-                    stopLoFi();
+                    eastsideAudio.pause();
+                    isMusicPlaying = false;
+                    musicToggle.classList.remove('playing');
+                    musicToggle.setAttribute('aria-pressed', 'false');
+                    musicLabel.textContent = "play oursong";
                 } else {
-                    playLoFi();
+                    eastsideAudio.play().then(() => {
+                        isMusicPlaying = true;
+                        musicToggle.classList.add('playing');
+                        musicToggle.setAttribute('aria-pressed', 'true');
+                        musicLabel.textContent = "Eastside playing";
+                    }).catch(() => {
+                        musicLabel.textContent = "add oursong.mp3 file";
+                        setTimeout(() => { musicLabel.textContent = "play oursong"; }, 2500);
+                    });
                 }
             }
+
+            // Auto-detect when audio file becomes available
+            eastsideAudio.addEventListener('canplaythrough', () => {
+                audioError = false;
+            });
 
             function miniConfetti(bubbleElement) {
                 if (!bubbleElement) return;
@@ -715,6 +752,7 @@
                 if (!popup) return;
                 popup.classList.add('active');
                 document.body.style.overflow = 'hidden';
+                if (closeBtn) closeBtn.focus();
                 throwConfetti();
                 throwHearts();
 
@@ -757,6 +795,7 @@
                 document.body.style.overflow = '';
                 if (typingTimer) clearTimeout(typingTimer);
                 isTyping = false;
+                if (openBtn) openBtn.focus();
             }
 
             function clearChat() {
@@ -775,6 +814,7 @@
                 }
 
                 const isLastMessage = msgIndex === messages.length - 1;
+                const isProposal = msgIndex === messages.length - 2;
 
                 const typingEl = document.createElement('div');
                 typingEl.className = 'typing';
@@ -787,21 +827,21 @@
                     if (typewriterDiv.contains(typingEl)) {
                         typewriterDiv.removeChild(typingEl);
                     }
-                    typeMessage(messages[msgIndex], isLastMessage, () => {
+                    typeMessage(messages[msgIndex], isProposal || isLastMessage, () => {
                         msgIndex++;
                         if (msgIndex < messages.length) {
                             typingTimer = setTimeout(() => {
                                 nextMessage();
-                            }, isLastMessage ? 2000 : 1200);
+                            }, isProposal ? 2000 : 1200);
                         }
                     });
                 }, delay);
             }
 
-            function typeMessage(text, isLast, callback) {
+            function typeMessage(text, isSpecial, callback) {
                 if (!typewriterDiv) return;
                 const bubble = document.createElement('div');
-                bubble.className = 'message' + (isLast ? ' proposal' : '');
+                bubble.className = 'message' + (isSpecial ? ' proposal' : '');
                 typewriterDiv.appendChild(bubble);
                 typewriterDiv.scrollTop = typewriterDiv.scrollHeight;
 
@@ -811,12 +851,15 @@
                         bubble.textContent += text.charAt(i);
                         i++;
                         typewriterDiv.scrollTop = typewriterDiv.scrollHeight;
-                        const speed = isLast ? 45 + Math.random() * 35 : 28 + Math.random() * 32;
+                        const speed = isSpecial ? 50 + Math.random() * 30 : 28 + Math.random() * 32;
                         typingTimer = setTimeout(typeChar, speed);
                     } else {
-                        if (isLast) {
+                        if (text.includes("will you marry me")) {
                             playProposalChime();
                             throwConfetti();
+                            throwHearts();
+                        } else if (text.includes("I love you. All of you. Always.")) {
+                            playProposalChime();
                             throwHearts();
                         } else {
                             playMessageChime();
@@ -836,11 +879,9 @@
 
             window.addEventListener('beforeunload', () => {
                 if (typingTimer) clearTimeout(typingTimer);
-                if (musicInterval) clearInterval(musicInterval);
+                if (eastsideAudio) eastsideAudio.pause();
             });
         })();
     </script>
 </body>
 </html>
-
-
