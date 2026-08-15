@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>for my favorite time traveler 🔮</title>
+    <title>For Amerie — My Forever 💍</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -12,131 +14,184 @@
         }
 
         body {
-            font-family: 'Segoe UI', 'Poppins', system-ui, -apple-system, sans-serif;
-            background: linear-gradient(135deg, #f9d8e4 0%, #fbc2c2 40%, #fce4c8 100%);
+            font-family: 'Poppins', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #ffe4ec 0%, #ffd1dc 30%, #fff0f5 60%, #fce4ec 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 1.5rem;
             margin: 0;
-            color: #3e2c3a;
+            color: #4a2c3a;
             position: relative;
             overflow-x: hidden;
         }
 
+        /* Floating hearts background */
         body::before {
-            content: "❤️💛💚💙💜";
+            content: "";
             position: fixed;
-            top: 20px;
-            left: 20px;
-            font-size: 2.2rem;
-            opacity: 0.12;
-            white-space: pre;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ctext x='10' y='35' font-size='20' opacity='0.06'%3E❤️%3C/text%3E%3C/svg%3E");
             pointer-events: none;
-            transform: rotate(-3deg);
-            letter-spacing: 12px;
             z-index: 0;
         }
 
         .main-card {
             width: 100%;
-            max-width: 500px;
-            background: rgba(255, 245, 250, 0.7);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
+            max-width: 520px;
+            background: rgba(255, 250, 252, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-radius: 3rem;
-            padding: 2.8rem 1.8rem;
-            box-shadow: 0 25px 40px rgba(180, 100, 120, 0.3), 0 0 0 1px rgba(255,255,255,0.6);
+            padding: 3rem 2rem;
+            box-shadow: 0 30px 50px rgba(180, 80, 110, 0.25), 0 0 0 1px rgba(255,255,255,0.7);
             text-align: center;
             z-index: 2;
             position: relative;
-            border: 2px solid rgba(255, 220, 230, 0.8);
+            border: 2px solid rgba(255, 200, 215, 0.6);
+            animation: cardFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes cardFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
         }
 
         .sticker {
-            font-size: 3.2rem;
-            margin-bottom: 0.2rem;
-            filter: drop-shadow(0 6px 8px rgba(0,0,0,0.1));
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+            filter: drop-shadow(0 8px 12px rgba(0,0,0,0.08));
+            animation: heartbeat 2s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            14% { transform: scale(1.15); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.12); }
+            70% { transform: scale(1); }
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.8rem;
             font-weight: 700;
-            color: #b44666;
-            margin-bottom: 0.3rem;
+            color: #c2185b;
+            margin-bottom: 0.4rem;
             letter-spacing: -0.5px;
-            text-shadow: 2px 2px 0 rgba(255,255,255,0.7);
+            text-shadow: 2px 2px 0 rgba(255,255,255,0.8);
         }
 
         .sub {
-            font-size: 1.1rem;
-            color: #7b4b5e;
-            margin-bottom: 2rem;
+            font-size: 1.05rem;
+            color: #8b4a5e;
+            margin-bottom: 2.2rem;
             font-style: italic;
-            background: rgba(255,255,255,0.5);
+            background: rgba(255,255,255,0.55);
             display: inline-block;
-            padding: 0.3rem 1.6rem;
+            padding: 0.35rem 1.8rem;
             border-radius: 30px;
+            font-weight: 400;
         }
 
         .cute-box {
-            background: rgba(255, 240, 245, 0.7);
+            background: rgba(255, 240, 245, 0.65);
             border-radius: 2rem;
-            padding: 1.5rem;
+            padding: 1.6rem 1.2rem;
             margin: 1.5rem 0;
-            border: 1px dashed #f7a8b8;
+            border: 1.5px dashed #f7a8b8;
             backdrop-filter: blur(8px);
         }
 
+        .cute-box p:first-child {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #8b1c4a;
+        }
+
+        .cute-box p:last-child {
+            font-size: 0.82rem;
+            opacity: 0.75;
+            margin-top: 0.4rem;
+            color: #7a4a5e;
+        }
+
         .btn {
-            background: #ff5e7e;
+            background: linear-gradient(135deg, #e91e63, #c2185b);
             color: white;
             border: none;
-            padding: 1rem 2.2rem;
-            border-radius: 3rem;
+            padding: 1.1rem 2.5rem;
+            border-radius: 3.5rem;
             font-weight: 700;
             font-size: 1.15rem;
             letter-spacing: 0.5px;
             cursor: pointer;
-            box-shadow: 0 12px 20px -8px rgba(255, 70, 100, 0.5);
-            transition: all 0.2s ease;
+            box-shadow: 0 14px 28px -8px rgba(233, 30, 99, 0.45);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            border: 2px solid white;
+            gap: 0.6rem;
+            border: 2px solid rgba(255,255,255,0.8);
             text-transform: uppercase;
-            margin: 0.5rem;
+            margin: 0.6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            transform: scale(0);
+            transition: transform 0.5s ease;
         }
 
         .btn:hover {
-            background: #ff3b62;
-            transform: translateY(-3px);
-            box-shadow: 0 20px 25px -6px #ff7799;
+            background: linear-gradient(135deg, #d81b60, #ad1457);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 22px 35px -8px rgba(233, 30, 99, 0.55);
+        }
+
+        .btn:hover::after {
+            transform: scale(1);
         }
 
         .btn:active {
-            transform: translateY(2px);
+            transform: translateY(1px) scale(0.98);
         }
 
         .music-btn {
             background: #fff0f5;
             color: #b3445c;
             border: 2px solid #ffb6c1;
-            padding: 0.5rem 1.2rem;
+            padding: 0.55rem 1.4rem;
             border-radius: 2.5rem;
             font-weight: 600;
             font-size: 0.9rem;
             cursor: pointer;
-            transition: 0.2s;
+            transition: all 0.25s ease;
             display: inline-flex;
             align-items: center;
-            gap: 0.3rem;
-            box-shadow: 0 4px 12px rgba(200,120,140,0.2);
+            gap: 0.4rem;
+            box-shadow: 0 4px 14px rgba(200,120,140,0.18);
         }
         .music-btn.playing {
             background: #ffe0e8;
             border-color: #ff8da1;
+            animation: pulseBtn 2s infinite;
+        }
+
+        @keyframes pulseBtn {
+            0%, 100% { box-shadow: 0 4px 14px rgba(200,120,140,0.18); }
+            50% { box-shadow: 0 4px 20px rgba(233, 30, 99, 0.3); }
         }
 
         .popup {
@@ -145,85 +200,160 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.4);
-            backdrop-filter: blur(10px);
+            background: rgba(0,0,0,0.35);
+            backdrop-filter: blur(12px);
             display: none;
             justify-content: center;
             align-items: center;
             z-index: 100;
             padding: 1rem;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .popup.active {
+            display: flex;
+            opacity: 1;
         }
 
         .popup-content {
-            background: #fff9fb;
-            border-radius: 2.2rem;
-            max-width: 450px;
+            background: linear-gradient(180deg, #fff9fb 0%, #fff0f5 100%);
+            border-radius: 2.4rem;
+            max-width: 480px;
             width: 100%;
-            padding: 1.8rem 1.5rem;
-            box-shadow: 0 30px 45px rgba(200, 100, 130, 0.4);
+            padding: 2rem 1.6rem;
+            box-shadow: 0 35px 55px rgba(180, 80, 110, 0.35);
             border: 2px solid #ffd0da;
             color: #30202b;
             text-align: left;
             position: relative;
+            transform: scale(0.9) translateY(20px);
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .popup.active .popup-content {
+            transform: scale(1) translateY(0);
         }
 
         .popup-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.3rem;
             border-bottom: 2px dotted #f7bfcc;
-            padding-bottom: 0.7rem;
+            padding-bottom: 0.8rem;
+        }
+
+        .popup-header span {
+            font-weight: 600;
+            color: #c2185b;
+            font-size: 0.95rem;
         }
 
         .close-btn {
             background: #ffeef2;
-            border: 1px solid #ffb6c1;
+            border: 1.5px solid #ffb6c1;
             color: #b3445c;
-            padding: 0.35rem 1.1rem;
+            padding: 0.4rem 1.2rem;
             border-radius: 2rem;
             font-weight: 600;
             font-size: 0.8rem;
             cursor: pointer;
-            transition: 0.2s;
+            transition: all 0.2s ease;
         }
         .close-btn:hover {
             background: #ffd1d9;
+            transform: scale(1.05);
         }
 
         #typewriter {
-            max-height: 350px;
+            max-height: 380px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
             font-size: 0.95rem;
-            padding-right: 3px;
+            padding-right: 4px;
+            scrollbar-width: thin;
+            scrollbar-color: #ffb6c1 transparent;
+        }
+
+        #typewriter::-webkit-scrollbar {
+            width: 4px;
+        }
+        #typewriter::-webkit-scrollbar-thumb {
+            background: #ffb6c1;
+            border-radius: 4px;
         }
 
         .message {
-            background: #ffeff3;
-            padding: 0.8rem 1.2rem;
-            border-radius: 1.4rem 1.4rem 1.4rem 0.3rem;
+            background: linear-gradient(135deg, #ffeff3, #fff5f8);
+            padding: 0.9rem 1.3rem;
+            border-radius: 1.6rem 1.6rem 1.6rem 0.3rem;
             width: fit-content;
-            max-width: 85%;
+            max-width: 88%;
             color: #2d1e26;
-            border: 1px solid #ffcfda;
-            box-shadow: 0 4px 8px rgba(220, 120, 140, 0.2);
-            line-height: 1.5;
+            border: 1.5px solid #ffd0da;
+            box-shadow: 0 4px 12px rgba(220, 120, 140, 0.15);
+            line-height: 1.6;
             word-break: break-word;
             font-weight: 500;
+            animation: messageIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes messageIn {
+            from { opacity: 0; transform: translateY(10px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .message.proposal {
+            background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+            border-color: #f48fb1;
+            font-weight: 600;
+            font-size: 1.05rem;
+            text-align: center;
+            align-self: center;
+            max-width: 95%;
+            padding: 1.2rem 1.5rem;
+            animation: proposalPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes proposalPulse {
+            0%, 100% { box-shadow: 0 4px 12px rgba(220, 120, 140, 0.15); }
+            50% { box-shadow: 0 6px 20px rgba(233, 30, 99, 0.25); }
         }
 
         .typing {
-            opacity: 0.8;
+            opacity: 0.75;
             font-style: italic;
             background: #fce4ec;
             padding: 0.5rem 1.2rem;
             border-radius: 1rem;
             width: fit-content;
             color: #b3546c;
-            font-size: 0.8rem;
+            font-size: 0.82rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .typing-dots {
+            display: flex;
+            gap: 3px;
+        }
+        .typing-dots span {
+            width: 5px;
+            height: 5px;
+            background: #b3546c;
+            border-radius: 50%;
+            animation: dotBounce 1.4s infinite ease-in-out both;
+        }
+        .typing-dots span:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dots span:nth-child(2) { animation-delay: -0.16s; }
+
+        @keyframes dotBounce {
+            0%, 80%, 100% { transform: scale(0.6); opacity: 0.5; }
+            40% { transform: scale(1); opacity: 1; }
         }
 
         #loadingScreen {
@@ -232,113 +362,138 @@
             align-items: center;
             justify-content: center;
             gap: 1.5rem;
-            padding: 2rem 1rem;
+            padding: 2.5rem 1rem;
             text-align: center;
         }
         .glitch-text {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
-            color: #b44666;
-            font-family: 'Courier New', monospace;
-            letter-spacing: 2px;
+            color: #c2185b;
+            font-family: 'Playfair Display', Georgia, serif;
+            letter-spacing: 1px;
             text-shadow: 2px 2px 0 #ffb3c6;
-            animation: glitch 0.8s infinite alternate;
+            animation: glitch 1s infinite alternate;
         }
         @keyframes glitch {
             0% { transform: translate(1px, 1px); }
             100% { transform: translate(-1px, -1px); }
         }
         .progress-bar {
-            width: 80%;
+            width: 75%;
             height: 10px;
             background: #fdd;
             border-radius: 10px;
             overflow: hidden;
-            border: 1px solid #ffb6c1;
+            border: 1.5px solid #ffb6c1;
         }
         .progress-fill {
             width: 0%;
             height: 100%;
-            background: #ff6b8b;
+            background: linear-gradient(90deg, #e91e63, #f48fb1);
             transition: width 0.5s ease;
             border-radius: 10px;
         }
 
         .confetti-main {
             position: fixed;
-            width: 8px;
-            height: 8px;
+            width: 10px;
+            height: 10px;
             top: -10px;
             border-radius: 50%;
-            animation: sprinkle 3.2s linear forwards;
+            animation: sprinkle 3.5s linear forwards;
             z-index: 200;
             pointer-events: none;
-            box-shadow: 0 0 8px currentColor;
+            box-shadow: 0 0 10px currentColor;
         }
         @keyframes sprinkle {
             0% { transform: translateY(0) rotate(0deg); opacity: 1; }
             90% { opacity: 0.8; }
-            100% { transform: translateY(105vh) rotate(600deg); opacity: 0; }
+            100% { transform: translateY(105vh) rotate(720deg); opacity: 0; }
+        }
+
+        .heart-confetti {
+            position: fixed;
+            font-size: 1.2rem;
+            top: -20px;
+            animation: heartFall 4s ease-in forwards;
+            z-index: 250;
+            pointer-events: none;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+        @keyframes heartFall {
+            0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
+            50% { opacity: 0.9; }
+            100% { transform: translateY(105vh) rotate(360deg) scale(0.5); opacity: 0; }
         }
 
         .mini-confetti {
             position: fixed;
-            width: 6px;
-            height: 6px;
-            border-radius: 2px;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
             pointer-events: none;
             z-index: 300;
-            animation: miniBurst 0.9s ease-out forwards;
-            box-shadow: 0 0 6px rgba(255,105,180,0.7);
+            animation: miniBurst 1s ease-out forwards;
+            box-shadow: 0 0 8px rgba(255,105,180,0.6);
         }
         @keyframes miniBurst {
             0% { transform: translate(0, 0) scale(1); opacity: 1; }
-            100% { transform: translate(var(--dx), var(--dy)) scale(0.3); opacity: 0; }
+            100% { transform: translate(var(--dx), var(--dy)) scale(0.2); opacity: 0; }
         }
 
         .signature {
-            margin-top: 1.8rem;
-            font-size: 0.85rem;
+            margin-top: 2rem;
+            font-size: 0.88rem;
             color: #b45f7a;
+            font-style: italic;
+        }
+
+        .ring-emoji {
+            display: inline-block;
+            animation: ringShine 2s ease-in-out infinite;
+        }
+        @keyframes ringShine {
+            0%, 100% { filter: brightness(1) drop-shadow(0 0 2px gold); }
+            50% { filter: brightness(1.3) drop-shadow(0 0 8px gold); }
         }
     </style>
 </head>
 <body>
     <div class="main-card">
-        <div class="sticker">🐸💐</div>
-        <h1>hey you</h1>
-        <div class="sub">open when you need a smile from 2035</div>
+        <div class="sticker">💍✨</div>
+        <h1>Amerie</h1>
+        <div class="sub">open when you're ready for forever</div>
 
         <div class="cute-box">
-            <p style="font-weight: 500;">📎 a tiny time capsule for you...</p>
-            <p style="font-size: 0.8rem; opacity: 0.8; margin-top: 0.3rem;">(93% nonsense, 100% accurate future predictions)</p>
+            <p>I've been waiting my whole life to ask you this...</p>
+            <p>(heartfelt, slightly nervous, 100% genuine)</p>
         </div>
 
         <button class="btn" id="surpriseBtn">
-            <span>🔮</span> receive future memo
+            <span class="ring-emoji">💍</span> Open My Heart
         </button>
         <div style="margin-top: 1rem;">
             <button class="music-btn" id="musicToggle">
-                <span>🎵</span> lofi mode
+                <span>🎵</span> our song
             </button>
         </div>
         <div class="signature">
-            — your personal hype human ✨
+            — the one who loves you most ❤️
         </div>
     </div>
 
     <div class="popup" id="chatPopup">
         <div class="popup-content">
             <div class="popup-header">
-                <span>💬 melly hotline (encrypted)</span>
+                <span>💌 A Message From My Heart</span>
                 <button class="close-btn" id="closePopupBtn">✕ close</button>
             </div>
             <div id="loadingScreen">
-                <div class="glitch-text">📡 connecting to 2035...</div>
+                <div class="glitch-text">💭 Gathering my courage...</div>
                 <div class="progress-bar">
                     <div class="progress-fill" id="progressFill"></div>
                 </div>
-                <p style="font-size:0.8rem; color:#b3546c;">decrypting future vibes</p>
+                <p style="font-size:0.82rem; color:#b3546c; font-style:italic;">every word is true, I promise</p>
             </div>
             <div id="typewriter" style="display: none;"></div>
         </div>
@@ -347,17 +502,31 @@
     <script>
         (function() {
             const messages = [
-                "🔐 transmission from 2035:",
-                "hey, it's your future self (well, sort of) 👋😌",
-                "I hacked back through time to tell you something important...",
-                "you're going to be INSANELY successful 💼🚀",
-                "like, 'owns a private island' level successful 🏝️😂",
-                "but before all that, there's one tiny thing...",
-                "READ. MORE. BOOKS. 📚✨",
-                "I'm literally begging you — your future yacht depends on it 🛥️😭",
-                "because in 2035, I'm bragging to everyone: 'I knew them when they still used bookmarks' 📖☕",
-                "so go grab a book. any book. I believe in you 💌",
-                "end of transmission. future you out. 🌟"
+                "Hey Amerie... 💭",
+                "I've been staring at this screen for way too long 😅",
+                "Not because I don't know what to say...",
+                "...but because there aren't enough words in the world 💫",
+                "From the moment I met you, everything changed ✨",
+                "You walked into my life like sunlight through curtains 🌅",
+                "Warm, golden, and impossible to ignore ☀️",
+                "I've laughed harder, loved deeper, and grown more because of you 🌱",
+                "You've seen me at my best and my worst 💪",
+                "And somehow, you chose to stay 🥺",
+                "That means everything to me. Literally everything 💎",
+                "I used to wonder what 'home' felt like 🏠",
+                "Turns out... it's your smile 😊",
+                "It's the way you laugh at my terrible jokes 😂",
+                "It's falling asleep knowing you're mine 🌙",
+                "It's waking up and choosing each other, every single day ☀️",
+                "Amerie, I don't want a life without you in it ❤️",
+                "I want your mornings and your nights 🌅🌃",
+                "I want your good days and your hard ones 🤝",
+                "I want to build something beautiful with you 🏗️✨",
+                "Something that lasts longer than both of us 💫",
+                "So here it is... no more waiting ⏳",
+                "No more 'someday' 📅",
+                "Just right now, and forever 💍",
+                "Amerie... will you marry me? 💍✨🥺"
             ];
 
             let msgIndex = 0;
@@ -372,7 +541,6 @@
             const closeBtn = document.getElementById('closePopupBtn');
             const musicToggle = document.getElementById('musicToggle');
 
-            // ---- SHARED AUDIO CONTEXT ----
             let audioCtx = null;
             let musicInterval = null;
             let isMusicPlaying = false;
@@ -387,65 +555,88 @@
                 return audioCtx;
             }
 
-            // ---- PLAY A NOTIFICATION CHIME (when a message appears) ----
             function playMessageChime() {
                 try {
                     const ctx = initAudioContext();
                     const now = ctx.currentTime;
-
-                    // two quick soft tones (like a little "ding-ding")
-                    const frequencies = [587.33, 783.99]; // D5, G5
+                    const frequencies = [523.25, 659.25, 783.99]; // C5, E5, G5 (romantic major chord)
                     frequencies.forEach((freq, index) => {
                         const osc = ctx.createOscillator();
                         const gain = ctx.createGain();
                         osc.type = 'sine';
                         osc.frequency.value = freq;
-                        gain.gain.setValueAtTime(0.12, now + index * 0.08);
-                        gain.gain.exponentialRampToValueAtTime(0.001, now + index * 0.08 + 0.2);
+                        gain.gain.setValueAtTime(0.1, now + index * 0.1);
+                        gain.gain.exponentialRampToValueAtTime(0.001, now + index * 0.1 + 0.35);
                         osc.connect(gain);
                         gain.connect(ctx.destination);
-                        osc.start(now + index * 0.08);
-                        osc.stop(now + index * 0.08 + 0.25);
+                        osc.start(now + index * 0.1);
+                        osc.stop(now + index * 0.1 + 0.4);
                     });
-                } catch (e) {
-                    // Silently fail if audio not allowed
-                }
+                } catch (e) {}
             }
 
-            // ---- MUSIC PLAYER (lofi) ----
+            function playProposalChime() {
+                try {
+                    const ctx = initAudioContext();
+                    const now = ctx.currentTime;
+                    // Romantic arpeggio
+                    const notes = [523.25, 659.25, 783.99, 1046.50, 783.99, 659.25, 523.25];
+                    notes.forEach((freq, index) => {
+                        const osc = ctx.createOscillator();
+                        const gain = ctx.createGain();
+                        osc.type = 'sine';
+                        osc.frequency.value = freq;
+                        gain.gain.setValueAtTime(0.12, now + index * 0.18);
+                        gain.gain.exponentialRampToValueAtTime(0.001, now + index * 0.18 + 0.5);
+                        osc.connect(gain);
+                        gain.connect(ctx.destination);
+                        osc.start(now + index * 0.18);
+                        osc.stop(now + index * 0.18 + 0.6);
+                    });
+                } catch (e) {}
+            }
+
             function playLoFi() {
                 if (isMusicPlaying) return;
                 const ctx = initAudioContext();
                 const gainNode = ctx.createGain();
-                gainNode.gain.value = 0.08;
+                gainNode.gain.value = 0.06;
                 gainNode.connect(ctx.destination);
 
-                const notes = [261.63, 329.63, 392.00, 493.88];
-                let noteIndex = 0;
-                const stepTime = 0.7;
+                // Romantic chord progression: C - G - Am - F
+                const chords = [
+                    [261.63, 329.63, 392.00],
+                    [196.00, 246.94, 293.66],
+                    [220.00, 261.63, 329.63],
+                    [174.61, 220.00, 261.63]
+                ];
+                let chordIndex = 0;
+                const stepTime = 2.5;
 
-                function scheduleNote() {
-                    const freq = notes[noteIndex % notes.length];
-                    const osc = ctx.createOscillator();
-                    const noteGain = ctx.createGain();
-                    osc.type = 'sine';
-                    osc.frequency.value = freq;
-                    noteGain.gain.value = 0.25;
-                    osc.connect(noteGain);
-                    noteGain.connect(gainNode);
-                    const now = ctx.currentTime;
-                    osc.start(now);
-                    osc.stop(now + 0.4);
-                    noteGain.gain.setValueAtTime(0.25, now);
-                    noteGain.gain.exponentialRampToValueAtTime(0.001, now + 0.4);
-                    noteIndex++;
+                function scheduleChord() {
+                    const chord = chords[chordIndex % chords.length];
+                    chord.forEach((freq) => {
+                        const osc = ctx.createOscillator();
+                        const noteGain = ctx.createGain();
+                        osc.type = 'sine';
+                        osc.frequency.value = freq;
+                        noteGain.gain.value = 0.2;
+                        osc.connect(noteGain);
+                        noteGain.connect(gainNode);
+                        const now = ctx.currentTime;
+                        osc.start(now);
+                        osc.stop(now + 1.8);
+                        noteGain.gain.setValueAtTime(0.2, now);
+                        noteGain.gain.exponentialRampToValueAtTime(0.001, now + 1.8);
+                    });
+                    chordIndex++;
                 }
 
-                scheduleNote();
-                musicInterval = setInterval(scheduleNote, stepTime * 1000);
+                scheduleChord();
+                musicInterval = setInterval(scheduleChord, stepTime * 1000);
                 isMusicPlaying = true;
                 musicToggle.classList.add('playing');
-                musicToggle.innerHTML = '<span>🎵</span> chill on';
+                musicToggle.innerHTML = '<span>🎵</span> playing';
             }
 
             function stopLoFi() {
@@ -455,7 +646,7 @@
                 }
                 isMusicPlaying = false;
                 musicToggle.classList.remove('playing');
-                musicToggle.innerHTML = '<span>🎵</span> lofi mode';
+                musicToggle.innerHTML = '<span>🵵</span> our song';
             }
 
             function toggleMusic() {
@@ -466,15 +657,14 @@
                 }
             }
 
-            // ---- MINI CONFETTI ----
             function miniConfetti(bubbleElement) {
                 if (!bubbleElement) return;
                 const rect = bubbleElement.getBoundingClientRect();
                 const centerX = rect.left + rect.width / 2;
                 const centerY = rect.top + rect.height / 2;
-                const colors = ['#ff6b9d','#f9c74f','#90be6d','#577590','#f9844a','#e5989b','#b56576'];
+                const colors = ['#e91e63','#f48fb1','#ffcc80','#ce93d8','#90caf9','#f06292','#ffab91'];
 
-                for (let i = 0; i < 8; i++) {
+                for (let i = 0; i < 10; i++) {
                     const particle = document.createElement('div');
                     particle.className = 'mini-confetti';
                     const color = colors[Math.floor(Math.random() * colors.length)];
@@ -482,24 +672,51 @@
                     particle.style.left = centerX + 'px';
                     particle.style.top = centerY + 'px';
                     const angle = Math.random() * 2 * Math.PI;
-                    const distance = 30 + Math.random() * 50;
+                    const distance = 35 + Math.random() * 55;
                     const dx = Math.cos(angle) * distance;
-                    const dy = Math.sin(angle) * distance - 20;
+                    const dy = Math.sin(angle) * distance - 25;
                     particle.style.setProperty('--dx', dx + 'px');
                     particle.style.setProperty('--dy', dy + 'px');
                     document.body.appendChild(particle);
                     setTimeout(() => {
                         if (particle.parentNode) particle.remove();
-                    }, 950);
+                    }, 1050);
                 }
             }
 
-            // ---- LOADING & MESSAGE FLOW ----
+            function throwConfetti() {
+                const colors = ['#e91e63','#f48fb1','#ffcc80','#ce93d8','#90caf9','#f06292','#ffab91'];
+                for (let i=0; i<55; i++) {
+                    const conf = document.createElement('div');
+                    conf.className = 'confetti-main';
+                    conf.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
+                    conf.style.left = Math.random()*100 + 'vw';
+                    conf.style.animationDuration = (Math.random()*2 + 2.5) + 's';
+                    document.body.appendChild(conf);
+                    setTimeout(() => { if(conf.parentNode) conf.remove(); }, 3800);
+                }
+            }
+
+            function throwHearts() {
+                const hearts = ['❤️','💖','💕','💗','💝','💘','💞'];
+                for (let i=0; i<30; i++) {
+                    const heart = document.createElement('div');
+                    heart.className = 'heart-confetti';
+                    heart.textContent = hearts[Math.floor(Math.random()*hearts.length)];
+                    heart.style.left = Math.random()*100 + 'vw';
+                    heart.style.animationDuration = (Math.random()*2 + 3) + 's';
+                    heart.style.fontSize = (0.8 + Math.random()*1.2) + 'rem';
+                    document.body.appendChild(heart);
+                    setTimeout(() => { if(heart.parentNode) heart.remove(); }, 4500);
+                }
+            }
+
             function openPopup() {
                 if (!popup) return;
-                popup.style.display = 'flex';
+                popup.classList.add('active');
                 document.body.style.overflow = 'hidden';
                 throwConfetti();
+                throwHearts();
 
                 clearChat();
                 msgIndex = 0;
@@ -515,7 +732,7 @@
                 let progress = 0;
                 const fill = document.getElementById('progressFill');
                 const interval = setInterval(() => {
-                    progress += Math.random() * 25 + 5;
+                    progress += Math.random() * 22 + 6;
                     if (progress >= 100) {
                         progress = 100;
                         if (fill) fill.style.width = '100%';
@@ -527,16 +744,16 @@
                                 isTyping = true;
                                 nextMessage();
                             }
-                        }, 400);
+                        }, 500);
                     } else {
                         if (fill) fill.style.width = progress + '%';
                     }
-                }, 250);
+                }, 280);
             }
 
             function closePopup() {
                 if (!popup) return;
-                popup.style.display = 'none';
+                popup.classList.remove('active');
                 document.body.style.overflow = '';
                 if (typingTimer) clearTimeout(typingTimer);
                 isTyping = false;
@@ -557,30 +774,34 @@
                     return;
                 }
 
+                const isLastMessage = msgIndex === messages.length - 1;
+
                 const typingEl = document.createElement('div');
                 typingEl.className = 'typing';
-                typingEl.innerText = '✨ decrypting message...';
+                typingEl.innerHTML = 'writing from the heart... <span class="typing-dots"><span></span><span></span><span></span></span>';
                 typewriterDiv.appendChild(typingEl);
                 typewriterDiv.scrollTop = typewriterDiv.scrollHeight;
 
-                const delay = 700 + Math.random() * 800;
+                const delay = 600 + Math.random() * 700;
                 setTimeout(() => {
                     if (typewriterDiv.contains(typingEl)) {
                         typewriterDiv.removeChild(typingEl);
                     }
-                    typeMessage(messages[msgIndex], () => {
+                    typeMessage(messages[msgIndex], isLastMessage, () => {
                         msgIndex++;
-                        typingTimer = setTimeout(() => {
-                            nextMessage();
-                        }, 1000);
+                        if (msgIndex < messages.length) {
+                            typingTimer = setTimeout(() => {
+                                nextMessage();
+                            }, isLastMessage ? 2000 : 1200);
+                        }
                     });
                 }, delay);
             }
 
-            function typeMessage(text, callback) {
+            function typeMessage(text, isLast, callback) {
                 if (!typewriterDiv) return;
                 const bubble = document.createElement('div');
-                bubble.className = 'message';
+                bubble.className = 'message' + (isLast ? ' proposal' : '');
                 typewriterDiv.appendChild(bubble);
                 typewriterDiv.scrollTop = typewriterDiv.scrollHeight;
 
@@ -590,11 +811,16 @@
                         bubble.textContent += text.charAt(i);
                         i++;
                         typewriterDiv.scrollTop = typewriterDiv.scrollHeight;
-                        const speed = 30 + Math.random() * 40;
+                        const speed = isLast ? 45 + Math.random() * 35 : 28 + Math.random() * 32;
                         typingTimer = setTimeout(typeChar, speed);
                     } else {
-                        // 🎵 Play sound when message finishes typing
-                        playMessageChime();
+                        if (isLast) {
+                            playProposalChime();
+                            throwConfetti();
+                            throwHearts();
+                        } else {
+                            playMessageChime();
+                        }
                         miniConfetti(bubble);
                         if (callback) callback();
                     }
@@ -602,24 +828,10 @@
                 typeChar();
             }
 
-            function throwConfetti() {
-                const colors = ['#ff6b9d','#f9c74f','#90be6d','#577590','#f9844a','#e5989b','#b56576'];
-                for (let i=0; i<45; i++) {
-                    const conf = document.createElement('div');
-                    conf.className = 'confetti-main';
-                    conf.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
-                    conf.style.left = Math.random()*100 + 'vw';
-                    conf.style.animationDuration = (Math.random()*2 + 2.5) + 's';
-                    document.body.appendChild(conf);
-                    setTimeout(() => { if(conf.parentNode) conf.remove(); }, 3500);
-                }
-            }
-
-            // event listeners
             openBtn.addEventListener('click', openPopup);
             closeBtn.addEventListener('click', closePopup);
             popup.addEventListener('click', (e) => { if (e.target === popup) closePopup(); });
-            window.addEventListener('keydown', (e) => { if (e.key === 'Escape' && popup.style.display === 'flex') closePopup(); });
+            window.addEventListener('keydown', (e) => { if (e.key === 'Escape' && popup.classList.contains('active')) closePopup(); });
             musicToggle.addEventListener('click', toggleMusic);
 
             window.addEventListener('beforeunload', () => {
@@ -630,3 +842,5 @@
     </script>
 </body>
 </html>
+
+
