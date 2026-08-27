@@ -1,887 +1,499 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>For Amerie — My Forever 💍</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+<title>For Ameri — Back Then, Still Now</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Courier+Prime:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #f2e8d3;
+    --paper-edge: #e4d5b0;
+    --ink: #4a3625;
+    --ink-soft: #7a5f45;
+    --rose: #c17b64;
+    --teal: #5f8783;
+    --gold: #c99a4a;
+    --shadow: rgba(74,54,37,0.25);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:'Poppins',system-ui,sans-serif;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(201,154,74,0.10), transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(95,135,131,0.10), transparent 45%),
+      var(--paper);
+    min-height:100vh;
+    display:flex;align-items:center;justify-content:center;
+    padding:1.5rem;color:var(--ink);position:relative;overflow-x:hidden;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(74,54,37,0.025) 0px, rgba(74,54,37,0.025) 1px, transparent 1px, transparent 3px);
+    opacity:0.5;
+  }
 
-        body {
-            font-family: 'Poppins', 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: linear-gradient(135deg, #ffe4ec 0%, #ffd1dc 30%, #fff0f5 60%, #fce4ec 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1.5rem;
-            margin: 0;
-            color: #4a2c3a;
-            position: relative;
-            overflow-x: hidden;
-        }
+  .main-card{
+    width:100%;max-width:520px;
+    background:#faf3e3;
+    border-radius:6px;
+    padding:3rem 2.2rem;
+    text-align:center;
+    position:relative;z-index:2;
+    box-shadow: 0 2px 0 var(--paper-edge), 0 22px 45px -15px var(--shadow), 0 0 0 1px rgba(74,54,37,0.06);
+    transform:rotate(-0.6deg);
+  }
+  .main-card::before{
+    content:"";position:absolute;top:-14px;left:50%;transform:translateX(-50%) rotate(-3deg);
+    width:110px;height:34px;
+    background:rgba(201,154,74,0.35);
+    border:1px solid rgba(201,154,74,0.5);
+    box-shadow:0 3px 6px rgba(0,0,0,0.08);
+  }
 
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ctext x='10' y='35' font-size='20' opacity='0.06'%3E❤️%3C/text%3E%3C/svg%3E");
-            pointer-events: none;
-            z-index: 0;
-        }
+  .cassette{
+    width:88px;height:56px;margin:0 auto 0.6rem;
+    background:linear-gradient(160deg,#3a2e22,#2a2018);
+    border-radius:8px;position:relative;
+    box-shadow:0 8px 16px -6px rgba(0,0,0,0.4), inset 0 0 0 2px rgba(255,255,255,0.05);
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 12px;
+  }
+  .reel{
+    width:20px;height:20px;border-radius:50%;
+    background:radial-gradient(circle, #c99a4a 0 4px, #6b5334 4px 100%);
+    animation:spin 3s linear infinite;
+  }
+  @keyframes spin{ to{ transform:rotate(360deg);} }
+  .cassette.paused .reel{ animation-play-state:paused; }
 
-        .main-card {
-            width: 100%;
-            max-width: 520px;
-            background: rgba(255, 250, 252, 0.75);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 3rem;
-            padding: 3rem 2rem;
-            box-shadow: 0 30px 50px rgba(180, 80, 110, 0.25), 0 0 0 1px rgba(255,255,255,0.7);
-            text-align: center;
-            z-index: 2;
-            position: relative;
-            border: 2px solid rgba(255, 200, 215, 0.6);
-            animation: cardFloat 6s ease-in-out infinite;
-        }
+  h1{
+    font-family:'Caveat',cursive;
+    font-size:3rem;font-weight:700;
+    color:var(--rose);
+    margin-bottom:0.1rem;
+    line-height:1;
+  }
+  .sub{
+    font-family:'Courier Prime',monospace;
+    font-size:0.85rem;letter-spacing:0.5px;
+    color:var(--ink-soft);
+    margin-bottom:2rem;
+    text-transform:uppercase;
+  }
 
-        @keyframes cardFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
+  .cute-box{
+    background:rgba(95,135,131,0.08);
+    border-radius:4px;
+    padding:1.5rem 1.2rem;
+    margin:1.6rem 0;
+    border:1.5px dashed var(--teal);
+    position:relative;
+  }
+  .cute-box p:first-child{
+    font-family:'Caveat',cursive;
+    font-weight:600;font-size:1.4rem;color:var(--ink);
+  }
+  .cute-box p:last-child{
+    font-family:'Courier Prime',monospace;
+    font-size:0.78rem;opacity:0.7;margin-top:0.5rem;color:var(--ink-soft);
+  }
 
-        .sticker {
-            font-size: 4rem;
-            margin-bottom: 0.5rem;
-            filter: drop-shadow(0 8px 12px rgba(0,0,0,0.08));
-            animation: heartbeat 2s ease-in-out infinite;
-        }
+  .btn{
+    background:var(--rose);
+    color:#fff8ee;border:none;
+    padding:1rem 2.3rem;border-radius:3px;
+    font-family:'Poppins',sans-serif;
+    font-weight:600;font-size:1rem;letter-spacing:0.5px;
+    cursor:pointer;
+    box-shadow:0 10px 20px -8px rgba(193,123,100,0.55);
+    transition:all 0.25s ease;
+    display:inline-flex;align-items:center;gap:0.5rem;
+    margin:0.6rem;
+  }
+  .btn:hover{ transform:translateY(-3px); box-shadow:0 16px 26px -8px rgba(193,123,100,0.65); background:#a8654f; }
+  .btn:active{ transform:translateY(1px) scale(0.98); }
 
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            14% { transform: scale(1.15); }
-            28% { transform: scale(1); }
-            42% { transform: scale(1.12); }
-            70% { transform: scale(1); }
-        }
+  .music-btn{
+    background:transparent;
+    color:var(--ink-soft);border:1.5px solid var(--gold);
+    padding:0.5rem 1.3rem;border-radius:20px;
+    font-family:'Courier Prime',monospace;
+    font-weight:700;font-size:0.8rem;letter-spacing:0.5px;
+    cursor:pointer;transition:all 0.25s ease;
+    display:inline-flex;align-items:center;gap:0.5rem;
+  }
+  .music-btn.playing{ background:rgba(201,154,74,0.15); }
 
-        h1 {
-            font-family: 'Playfair Display', Georgia, serif;
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: #c2185b;
-            margin-bottom: 0.4rem;
-            letter-spacing: -0.5px;
-            text-shadow: 2px 2px 0 rgba(255,255,255,0.8);
-        }
+  /* Popup */
+  .popup{
+    position:fixed;inset:0;background:rgba(42,32,24,0.55);
+    display:flex;align-items:center;justify-content:center;
+    opacity:0;pointer-events:none;transition:opacity 0.35s ease;z-index:50;padding:1rem;
+  }
+  .popup.active{ opacity:1;pointer-events:auto; }
 
-        .sub {
-            font-size: 1.05rem;
-            color: #8b4a5e;
-            margin-bottom: 2.2rem;
-            font-style: italic;
-            background: rgba(255,255,255,0.55);
-            display: inline-block;
-            padding: 0.35rem 1.8rem;
-            border-radius: 30px;
-            font-weight: 400;
-        }
+  .memory-book{
+    width:100%;max-width:460px;max-height:88vh;
+    background:#faf3e3;border-radius:6px;
+    position:relative;display:flex;flex-direction:column;
+    box-shadow:0 30px 60px rgba(0,0,0,0.4);
+    overflow:hidden;
+  }
+  .book-header{
+    padding:1.1rem 1.4rem;
+    border-bottom:1.5px dashed var(--paper-edge);
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .book-title{
+    font-family:'Caveat',cursive;font-size:1.5rem;color:var(--rose);font-weight:700;
+  }
+  .close-btn{
+    background:none;border:none;font-size:1.4rem;color:var(--ink-soft);cursor:pointer;
+    width:32px;height:32px;border-radius:50%;
+  }
+  .close-btn:hover{ background:rgba(74,54,37,0.08); }
+  .close-btn:focus-visible, .btn:focus-visible, .music-btn:focus-visible{
+    outline:3px solid var(--teal); outline-offset:2px;
+  }
 
-        .cute-box {
-            background: rgba(255, 240, 245, 0.65);
-            border-radius: 2rem;
-            padding: 1.6rem 1.2rem;
-            margin: 1.5rem 0;
-            border: 1.5px dashed #f7a8b8;
-            backdrop-filter: blur(8px);
-        }
+  .loading-screen{
+    flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:3rem 1.5rem;gap:1rem;
+  }
+  .loading-screen p{ font-family:'Courier Prime',monospace;font-size:0.85rem;color:var(--ink-soft); }
+  .progress-track{ width:75%;height:6px;background:var(--paper-edge);border-radius:3px;overflow:hidden; }
+  .progress-fill{ height:100%;width:0%;background:var(--rose);transition:width 0.25s ease; }
 
-        .cute-box p:first-child {
-            font-weight: 600;
-            font-size: 1.05rem;
-            color: #8b1c4a;
-        }
+  .typewriter{
+    display:none;flex:1;flex-direction:column;
+    padding:1.4rem 1.4rem 1rem;gap:0.7rem;
+    overflow-y:auto;
+  }
+  .typing{
+    font-family:'Courier Prime',monospace;font-size:0.8rem;color:var(--ink-soft);
+    display:flex;align-items:center;gap:0.4rem;opacity:0.8;
+  }
+  .typing-dots span{
+    display:inline-block;width:4px;height:4px;border-radius:50%;
+    background:var(--ink-soft);margin-left:2px;
+    animation:blink 1.2s infinite;
+  }
+  .typing-dots span:nth-child(2){ animation-delay:0.2s; }
+  .typing-dots span:nth-child(3){ animation-delay:0.4s; }
+  @keyframes blink{ 0%,100%{opacity:0.2;} 50%{opacity:1;} }
 
-        .cute-box p:last-child {
-            font-size: 0.82rem;
-            opacity: 0.75;
-            margin-top: 0.4rem;
-            color: #7a4a5e;
-        }
+  .message{
+    font-family:'Caveat',cursive;font-size:1.55rem;line-height:1.35;
+    color:var(--ink);
+    background:rgba(201,154,74,0.10);
+    border-left:3px solid var(--gold);
+    padding:0.7rem 1rem;border-radius:2px;
+    align-self:flex-start;max-width:88%;
+  }
+  .message.proposal{
+    font-size:1.9rem;color:var(--rose);
+    background:rgba(193,123,100,0.10);
+    border-left-color:var(--rose);
+    max-width:100%;
+  }
 
-        .btn {
-            background: linear-gradient(135deg, #e91e63, #c2185b);
-            color: white;
-            border: none;
-            padding: 1.1rem 2.5rem;
-            border-radius: 3.5rem;
-            font-weight: 700;
-            font-size: 1.15rem;
-            letter-spacing: 0.5px;
-            cursor: pointer;
-            box-shadow: 0 14px 28px -8px rgba(233, 30, 99, 0.45);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            border: 2px solid rgba(255,255,255,0.8);
-            text-transform: uppercase;
-            margin: 0.6rem;
-            position: relative;
-            overflow: hidden;
-        }
+  .book-footer{
+    padding:1rem 1.4rem 1.3rem;border-top:1.5px dashed var(--paper-edge);
+    text-align:center;
+  }
+  .book-footer .btn{ font-size:0.85rem;padding:0.7rem 1.6rem; }
 
-        .btn::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
-            transform: scale(0);
-            transition: transform 0.5s ease;
-        }
+  /* confetti bits: paper scraps + hearts, restrained */
+  .scrap{
+    position:fixed;top:-20px;width:8px;height:12px;pointer-events:none;z-index:60;
+    animation:fall linear forwards;
+  }
+  @keyframes fall{
+    to{ transform:translateY(105vh) rotate(340deg); opacity:0.15; }
+  }
+  .mini-confetti{
+    position:fixed;width:6px;height:6px;border-radius:1px;pointer-events:none;z-index:60;
+    animation:pop 1s ease-out forwards;
+  }
+  @keyframes pop{
+    to{ transform:translate(var(--dx), var(--dy)) scale(0); opacity:0; }
+  }
 
-        .btn:hover {
-            background: linear-gradient(135deg, #d81b60, #ad1457);
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 22px 35px -8px rgba(233, 30, 99, 0.55);
-        }
+  @media (prefers-reduced-motion: reduce){
+    .cassette .reel, .scrap, .mini-confetti, .main-card{ animation:none !important; }
+  }
 
-        .btn:hover::after {
-            transform: scale(1);
-        }
-
-        .btn:active {
-            transform: translateY(1px) scale(0.98);
-        }
-
-        .music-btn {
-            background: #fff0f5;
-            color: #b3445c;
-            border: 2px solid #ffb6c1;
-            padding: 0.55rem 1.4rem;
-            border-radius: 2.5rem;
-            font-weight: 600;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            box-shadow: 0 4px 14px rgba(200,120,140,0.18);
-        }
-        .music-btn.playing {
-            background: #ffe0e8;
-            border-color: #ff8da1;
-            animation: pulseBtn 2s infinite;
-        }
-
-        @keyframes pulseBtn {
-            0%, 100% { box-shadow: 0 4px 14px rgba(200,120,140,0.18); }
-            50% { box-shadow: 0 4px 20px rgba(233, 30, 99, 0.3); }
-        }
-
-        .popup {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.35);
-            backdrop-filter: blur(12px);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 100;
-            padding: 1rem;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .popup.active {
-            display: flex;
-            opacity: 1;
-        }
-
-        .popup-content {
-            background: linear-gradient(180deg, #fff9fb 0%, #fff0f5 100%);
-            border-radius: 2.4rem;
-            max-width: 480px;
-            width: 100%;
-            padding: 2rem 1.6rem;
-            box-shadow: 0 35px 55px rgba(180, 80, 110, 0.35);
-            border: 2px solid #ffd0da;
-            color: #30202b;
-            text-align: left;
-            position: relative;
-            transform: scale(0.9) translateY(20px);
-            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .popup.active .popup-content {
-            transform: scale(1) translateY(0);
-        }
-
-        .popup-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.3rem;
-            border-bottom: 2px dotted #f7bfcc;
-            padding-bottom: 0.8rem;
-        }
-
-        .popup-header span {
-            font-weight: 600;
-            color: #c2185b;
-            font-size: 0.95rem;
-        }
-
-        .close-btn {
-            background: #ffeef2;
-            border: 1.5px solid #ffb6c1;
-            color: #b3445c;
-            padding: 0.4rem 1.2rem;
-            border-radius: 2rem;
-            font-weight: 600;
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        .close-btn:hover {
-            background: #ffd1d9;
-            transform: scale(1.05);
-        }
-
-        #typewriter {
-            max-height: 380px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            font-size: 0.95rem;
-            padding-right: 4px;
-            scrollbar-width: thin;
-            scrollbar-color: #ffb6c1 transparent;
-        }
-
-        #typewriter::-webkit-scrollbar {
-            width: 4px;
-        }
-        #typewriter::-webkit-scrollbar-thumb {
-            background: #ffb6c1;
-            border-radius: 4px;
-        }
-
-        .message {
-            background: linear-gradient(135deg, #ffeff3, #fff5f8);
-            padding: 0.9rem 1.3rem;
-            border-radius: 1.6rem 1.6rem 1.6rem 0.3rem;
-            width: fit-content;
-            max-width: 88%;
-            color: #2d1e26;
-            border: 1.5px solid #ffd0da;
-            box-shadow: 0 4px 12px rgba(220, 120, 140, 0.15);
-            line-height: 1.6;
-            word-break: break-word;
-            font-weight: 500;
-            animation: messageIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        @keyframes messageIn {
-            from { opacity: 0; transform: translateY(10px) scale(0.95); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
-        }
-
-        .message.proposal {
-            background: linear-gradient(135deg, #fce4ec, #f8bbd0);
-            border-color: #f48fb1;
-            font-weight: 600;
-            font-size: 1.05rem;
-            text-align: center;
-            align-self: center;
-            max-width: 95%;
-            padding: 1.2rem 1.5rem;
-            animation: proposalPulse 2s ease-in-out infinite;
-        }
-
-        @keyframes proposalPulse {
-            0%, 100% { box-shadow: 0 4px 12px rgba(220, 120, 140, 0.15); }
-            50% { box-shadow: 0 6px 20px rgba(233, 30, 99, 0.25); }
-        }
-
-        .typing {
-            opacity: 0.75;
-            font-style: italic;
-            background: #fce4ec;
-            padding: 0.5rem 1.2rem;
-            border-radius: 1rem;
-            width: fit-content;
-            color: #b3546c;
-            font-size: 0.82rem;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .typing-dots {
-            display: flex;
-            gap: 3px;
-        }
-        .typing-dots span {
-            width: 5px;
-            height: 5px;
-            background: #b3546c;
-            border-radius: 50%;
-            animation: dotBounce 1.4s infinite ease-in-out both;
-        }
-        .typing-dots span:nth-child(1) { animation-delay: -0.32s; }
-        .typing-dots span:nth-child(2) { animation-delay: -0.16s; }
-
-        @keyframes dotBounce {
-            0%, 80%, 100% { transform: scale(0.6); opacity: 0.5; }
-            40% { transform: scale(1); opacity: 1; }
-        }
-
-        #loadingScreen {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 1.5rem;
-            padding: 2.5rem 1rem;
-            text-align: center;
-        }
-        .glitch-text {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #c2185b;
-            font-family: 'Playfair Display', Georgia, serif;
-            letter-spacing: 1px;
-            text-shadow: 2px 2px 0 #ffb3c6;
-            animation: glitch 1s infinite alternate;
-        }
-        @keyframes glitch {
-            0% { transform: translate(1px, 1px); }
-            100% { transform: translate(-1px, -1px); }
-        }
-        .progress-bar {
-            width: 75%;
-            height: 10px;
-            background: #fdd;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1.5px solid #ffb6c1;
-        }
-        .progress-fill {
-            width: 0%;
-            height: 100%;
-            background: linear-gradient(90deg, #e91e63, #f48fb1);
-            transition: width 0.5s ease;
-            border-radius: 10px;
-        }
-
-        .confetti-main {
-            position: fixed;
-            width: 10px;
-            height: 10px;
-            top: -10px;
-            border-radius: 50%;
-            animation: sprinkle 3.5s linear forwards;
-            z-index: 200;
-            pointer-events: none;
-            box-shadow: 0 0 10px currentColor;
-        }
-        @keyframes sprinkle {
-            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-            90% { opacity: 0.8; }
-            100% { transform: translateY(105vh) rotate(720deg); opacity: 0; }
-        }
-
-        .heart-confetti {
-            position: fixed;
-            font-size: 1.2rem;
-            top: -20px;
-            animation: heartFall 4s ease-in forwards;
-            z-index: 250;
-            pointer-events: none;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-        }
-        @keyframes heartFall {
-            0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
-            50% { opacity: 0.9; }
-            100% { transform: translateY(105vh) rotate(360deg) scale(0.5); opacity: 0; }
-        }
-
-        .mini-confetti {
-            position: fixed;
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 300;
-            animation: miniBurst 1s ease-out forwards;
-            box-shadow: 0 0 8px rgba(255,105,180,0.6);
-        }
-        @keyframes miniBurst {
-            0% { transform: translate(0, 0) scale(1); opacity: 1; }
-            100% { transform: translate(var(--dx), var(--dy)) scale(0.2); opacity: 0; }
-        }
-
-        .signature {
-            margin-top: 2rem;
-            font-size: 0.88rem;
-            color: #b45f7a;
-            font-style: italic;
-        }
-
-        .ring-emoji {
-            display: inline-block;
-            animation: ringShine 2s ease-in-out infinite;
-        }
-        @keyframes ringShine {
-            0%, 100% { filter: brightness(1) drop-shadow(0 0 2px gold); }
-            50% { filter: brightness(1.3) drop-shadow(0 0 8px gold); }
-        }
-
-        /* Audio visualizer bars */
-        .audio-visualizer {
-            display: none;
-            align-items: flex-end;
-            gap: 3px;
-            height: 18px;
-            margin-left: 4px;
-        }
-        .music-btn.playing .audio-visualizer {
-            display: flex;
-        }
-        .bar {
-            width: 3px;
-            background: #e91e63;
-            border-radius: 2px;
-            animation: barDance 0.6s ease-in-out infinite alternate;
-        }
-        .bar:nth-child(1) { height: 6px; animation-delay: 0s; }
-        .bar:nth-child(2) { height: 12px; animation-delay: 0.1s; }
-        .bar:nth-child(3) { height: 8px; animation-delay: 0.2s; }
-        .bar:nth-child(4) { height: 14px; animation-delay: 0.15s; }
-        @keyframes barDance {
-            from { transform: scaleY(0.4); }
-            to { transform: scaleY(1); }
-        }
-    </style>
+  @media (max-width:420px){
+    .main-card{ padding:2.2rem 1.4rem; }
+    h1{ font-size:2.4rem; }
+  }
+</style>
 </head>
 <body>
-    <!-- 
-    ============================================
-    HOW TO ADD "EASTSIDE" BY BENNY BLANCO:
 
-    Option 1 (Easiest): 
-    1. Download the MP3 of "Eastside"
-    2. Rename it to "oursong.mp3"
-    3. Put it in the SAME folder as this HTML file
+  <div class="main-card">
+    <div class="cassette paused" id="cassette">
+      <div class="reel"></div>
+      <div class="reel"></div>
+    </div>
+    <h1>For Ameri</h1>
+    <p class="sub">a little rewind &mdash; high school us</p>
 
-    Option 2 (YouTube):
-    Replace the audio src below with a YouTube embed URL
-
-    Option 3 (Spotify):
-    Use a Spotify embed iframe instead
-    ============================================
-    -->
-    <audio id="eastsideAudio" loop preload="auto">
-        <source src="oursong.mp3" type="audio/mpeg">
-        <!-- Fallback: If oursong.mp3 isn't found, the button will show a friendly message -->
-    </audio>
-
-    <div class="main-card">
-        <div class="sticker">💍✨</div>
-        <h1>Amerie</h1>
-        <div class="sub">yesterday changed everything... and i'm not letting go</div>
-
-        <div class="cute-box">
-            <p>We're back together, and I never want to lose you again...</p>
-            <p>(this time, i'm asking for forever)</p>
-        </div>
-
-        <button class="btn" id="surpriseBtn" aria-haspopup="dialog">
-            <span class="ring-emoji" aria-hidden="true">💍</span> Read My Heart
-        </button>
-        <div style="margin-top: 1rem;">
-            <button class="music-btn" id="musicToggle" aria-pressed="false">
-                <span aria-hidden="true">🎵</span> <span id="musicLabel">play oursong</span>
-                <span class="audio-visualizer" aria-hidden="true">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </span>
-            </button>
-        </div>
-        <div class="signature">
-            — the one who fought for you ❤️
-        </div>
+    <div class="cute-box">
+      <p>remember when we were just kids figuring it out?</p>
+      <p>press play, take a minute, go back with me</p>
     </div>
 
-    <div class="popup" id="chatPopup" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
-        <div class="popup-content">
-            <div class="popup-header">
-                <span id="popupTitle">💌 What I've Been Dying to Say</span>
-                <button class="close-btn" id="closePopupBtn" aria-label="Close message">✕ close</button>
-            </div>
-            <div id="loadingScreen">
-                <div class="glitch-text">💭 Putting it all into words...</div>
-                <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Loading message">
-                    <div class="progress-fill" id="progressFill"></div>
-                </div>
-                <p style="font-size:0.82rem; color:#b3546c; font-style:italic;">every word is how i really feel</p>
-            </div>
-            <div id="typewriter" style="display: none;" aria-live="polite"></div>
-        </div>
+    <button class="btn" id="openBtn">
+      open the memory book
+    </button>
+    <br>
+    <button class="music-btn" id="musicToggle">
+      <span id="musicIcon">▶</span>
+      <span id="musicLabel">play our song</span>
+    </button>
+  </div>
+
+  <audio id="eastsideAudio" loop preload="none">
+    <source src="oursong.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="popup" id="popup" role="dialog" aria-modal="true" aria-label="Memory book for Ameri">
+    <div class="memory-book">
+      <div class="book-header">
+        <span class="book-title">our old times</span>
+        <button class="close-btn" id="closeBtn" aria-label="Close">&times;</button>
+      </div>
+
+      <div class="loading-screen" id="loadingScreen">
+        <p>rewinding the tape...</p>
+        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+      </div>
+
+      <div class="typewriter" id="typewriterDiv"></div>
+
+      <div class="book-footer" id="bookFooter" style="display:none;">
+        <button class="btn" id="closeBtn2">close, but keep it in mind</button>
+      </div>
     </div>
+  </div>
 
-    <script>
-        (function() {
-            const messages = [
-                "Hey Amerie... 💭",
-                "Yesterday, you said we're back together 🥺",
-                "And I haven't stopped smiling since 😊",
-                "But I need you to know something...",
-                "I don't just want us to be \"back\" ✋",
-                "I want us to be FOREVER 💫",
-                "When we were apart, I realized something 💡",
-                "My life doesn't work without you in it ❌➡️✅",
-                "The quiet moments felt too quiet 🌑",
-                "The good days didn't feel as good ☀️",
-                "And every love song reminded me of you 🎵",
-                "Especially ours... that one's ours now 🎧",
-                "You walked back into my life like you never left 🚪💨",
-                "And I knew — this is it. This is the one ☝️❤️",
-                "You're my person, Amerie 👫",
-                "The one I want to wake up next to every morning 🌅",
-                "The one I want to come home to every night 🌙",
-                "The one I want to build a life with 🏠",
-                "Through the highs, the lows, and everything between 📈📉",
-                "I want to be the reason you smile 😊",
-                "The arms you run to when the world gets heavy 🤗",
-                "The voice that says we got this when things get hard 💪",
-                "I'm not perfect. I'll mess up. I'll annoy you 😅",
-                "But I promise you this — I'll never stop choosing you 🎯",
-                "Every single day. For the rest of my life 📅➡️♾️",
-                "So here's the question I've been holding in... 💍",
-                "Amerie... will you marry me? 💍✨🥺",
-                "I love you. All of you. Always. ❤️"
-            ];
+<script>
+(function(){
+  const openBtn = document.getElementById('openBtn');
+  const closeBtn = document.getElementById('closeBtn');
+  const closeBtn2 = document.getElementById('closeBtn2');
+  const popup = document.getElementById('popup');
+  const loadingScreen = document.getElementById('loadingScreen');
+  const progressFill = document.getElementById('progressFill');
+  const typewriterDiv = document.getElementById('typewriterDiv');
+  const bookFooter = document.getElementById('bookFooter');
+  const musicToggle = document.getElementById('musicToggle');
+  const musicIcon = document.getElementById('musicIcon');
+  const musicLabel = document.getElementById('musicLabel');
+  const cassette = document.getElementById('cassette');
+  const eastsideAudio = document.getElementById('eastsideAudio');
 
-            let msgIndex = 0;
-            let isTyping = false;
-            let typingTimer = null;
+  // Edit these lines freely — this is where the real memories go.
+  const messages = [
+    "hey ameri...",
+    "remember passing notes when the teacher wasn't looking?",
+    "or walking home the long way, just to talk a little longer?",
+    "we didn't have much figured out back then",
+    "but somehow we were happy. really happy.",
+    "I still think about those days more than you'd guess",
+    "and I just wanted to remind you of that today",
+    "I love you. All of you. Always."
+  ];
 
-            const popup = document.getElementById('chatPopup');
-            const typewriterDiv = document.getElementById('typewriter');
-            const loadingScreen = document.getElementById('loadingScreen');
-            const progressFill = document.getElementById('progressFill');
-            const openBtn = document.getElementById('surpriseBtn');
-            const closeBtn = document.getElementById('closePopupBtn');
-            const musicToggle = document.getElementById('musicToggle');
-            const musicLabel = document.getElementById('musicLabel');
-            const eastsideAudio = document.getElementById('eastsideAudio');
+  let msgIndex = 0;
+  let isTyping = false;
+  let typingTimer = null;
+  let isPlaying = false;
+  let audioError = false;
 
-            let audioCtx = null;
-            let isMusicPlaying = false;
-            let audioError = false;
+  function toggleMusic(){
+    if (isPlaying){
+      eastsideAudio.pause();
+      isPlaying = false;
+      musicToggle.classList.remove('playing');
+      cassette.classList.add('paused');
+      musicIcon.textContent = '▶';
+      musicLabel.textContent = 'play our song';
+    } else {
+      eastsideAudio.play().then(() => {
+        isPlaying = true;
+        musicToggle.classList.add('playing');
+        cassette.classList.remove('paused');
+        musicIcon.textContent = '❚❚';
+        musicLabel.textContent = 'pause our song';
+      }).catch(() => {
+        audioError = true;
+        musicLabel.textContent = 'add oursong.mp3 file';
+        setTimeout(() => { musicLabel.textContent = 'play our song'; }, 2500);
+      });
+    }
+  }
 
-            function initAudioContext() {
-                if (!audioCtx) {
-                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-                }
-                if (audioCtx.state === 'suspended') {
-                    audioCtx.resume();
-                }
-                return audioCtx;
-            }
+  eastsideAudio.addEventListener('canplaythrough', () => { audioError = false; });
 
-            function playMessageChime() {
-                try {
-                    const ctx = initAudioContext();
-                    const now = ctx.currentTime;
-                    const frequencies = [523.25, 659.25, 783.99];
-                    frequencies.forEach((freq, index) => {
-                        const osc = ctx.createOscillator();
-                        const gain = ctx.createGain();
-                        osc.type = 'sine';
-                        osc.frequency.value = freq;
-                        gain.gain.setValueAtTime(0.1, now + index * 0.1);
-                        gain.gain.exponentialRampToValueAtTime(0.001, now + index * 0.1 + 0.35);
-                        osc.connect(gain);
-                        gain.connect(ctx.destination);
-                        osc.start(now + index * 0.1);
-                        osc.stop(now + index * 0.1 + 0.4);
-                    });
-                } catch (e) {}
-            }
+  function miniConfetti(el){
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const cx = rect.left + rect.width/2;
+    const cy = rect.top + rect.height/2;
+    const colors = ['#c99a4a','#c17b64','#5f8783','#e4d5b0'];
+    for (let i=0;i<8;i++){
+      const p = document.createElement('div');
+      p.className = 'mini-confetti';
+      p.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
+      p.style.left = cx + 'px';
+      p.style.top = cy + 'px';
+      const angle = Math.random()*2*Math.PI;
+      const dist = 30 + Math.random()*50;
+      p.style.setProperty('--dx', (Math.cos(angle)*dist) + 'px');
+      p.style.setProperty('--dy', (Math.sin(angle)*dist - 20) + 'px');
+      document.body.appendChild(p);
+      setTimeout(() => { if (p.parentNode) p.remove(); }, 1050);
+    }
+  }
 
-            function playProposalChime() {
-                try {
-                    const ctx = initAudioContext();
-                    const now = ctx.currentTime;
-                    const notes = [523.25, 659.25, 783.99, 1046.50, 783.99, 659.25, 523.25];
-                    notes.forEach((freq, index) => {
-                        const osc = ctx.createOscillator();
-                        const gain = ctx.createGain();
-                        osc.type = 'sine';
-                        osc.frequency.value = freq;
-                        gain.gain.setValueAtTime(0.12, now + index * 0.18);
-                        gain.gain.exponentialRampToValueAtTime(0.001, now + index * 0.18 + 0.5);
-                        osc.connect(gain);
-                        gain.connect(ctx.destination);
-                        osc.start(now + index * 0.18);
-                        osc.stop(now + index * 0.18 + 0.6);
-                    });
-                } catch (e) {}
-            }
+  function fallingScraps(){
+    const colors = ['#c99a4a','#c17b64','#5f8783','#e4d5b0','#a8654f'];
+    for (let i=0;i<26;i++){
+      const s = document.createElement('div');
+      s.className = 'scrap';
+      s.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
+      s.style.left = Math.random()*100 + 'vw';
+      s.style.animationDuration = (Math.random()*2 + 2.8) + 's';
+      s.style.opacity = 0.6 + Math.random()*0.3;
+      document.body.appendChild(s);
+      setTimeout(() => { if (s.parentNode) s.remove(); }, 3200);
+    }
+  }
 
-            function toggleMusic() {
-                if (!eastsideAudio) {
-                    musicLabel.textContent = "add oursong.mp3 first";
-                    return;
-                }
+  function openPopup(){
+    if (!popup) return;
+    popup.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    if (closeBtn) closeBtn.focus();
 
-                // Check if audio file is actually loaded/available
-                if (eastsideAudio.error && eastsideAudio.error.code === 4) {
-                    audioError = true;
-                }
+    clearBook();
+    msgIndex = 0;
+    isTyping = false;
+    typewriterDiv.style.display = 'none';
+    bookFooter.style.display = 'none';
+    loadingScreen.style.display = 'flex';
+    progressFill.style.width = '0%';
 
-                if (audioError || eastsideAudio.readyState === 0) {
-                    musicLabel.textContent = "drop oursong.mp3 in folder";
-                    setTimeout(() => { musicLabel.textContent = "play oursong"; }, 2500);
-                    return;
-                }
+    simulateLoading();
+  }
 
-                if (isMusicPlaying) {
-                    eastsideAudio.pause();
-                    isMusicPlaying = false;
-                    musicToggle.classList.remove('playing');
-                    musicToggle.setAttribute('aria-pressed', 'false');
-                    musicLabel.textContent = "play oursong";
-                } else {
-                    eastsideAudio.play().then(() => {
-                        isMusicPlaying = true;
-                        musicToggle.classList.add('playing');
-                        musicToggle.setAttribute('aria-pressed', 'true');
-                        musicLabel.textContent = "Eastside playing";
-                    }).catch(() => {
-                        musicLabel.textContent = "add oursong.mp3 file";
-                        setTimeout(() => { musicLabel.textContent = "play oursong"; }, 2500);
-                    });
-                }
-            }
+  function simulateLoading(){
+    let progress = 0;
+    const interval = setInterval(() => {
+      progress += Math.random()*22 + 8;
+      if (progress >= 100){
+        progress = 100;
+        progressFill.style.width = '100%';
+        clearInterval(interval);
+        setTimeout(() => {
+          loadingScreen.style.display = 'none';
+          typewriterDiv.style.display = 'flex';
+          if (!isTyping){
+            isTyping = true;
+            nextMessage();
+          }
+        }, 400);
+      } else {
+        progressFill.style.width = progress + '%';
+      }
+    }, 260);
+  }
 
-            // Auto-detect when audio file becomes available
-            eastsideAudio.addEventListener('canplaythrough', () => {
-                audioError = false;
-            });
+  function closePopup(){
+    if (!popup) return;
+    popup.classList.remove('active');
+    document.body.style.overflow = '';
+    if (typingTimer) clearTimeout(typingTimer);
+    isTyping = false;
+    if (openBtn) openBtn.focus();
+  }
 
-            function miniConfetti(bubbleElement) {
-                if (!bubbleElement) return;
-                const rect = bubbleElement.getBoundingClientRect();
-                const centerX = rect.left + rect.width / 2;
-                const centerY = rect.top + rect.height / 2;
-                const colors = ['#e91e63','#f48fb1','#ffcc80','#ce93d8','#90caf9','#f06292','#ffab91'];
+  function clearBook(){
+    typewriterDiv.innerHTML = '';
+    if (typingTimer){ clearTimeout(typingTimer); typingTimer = null; }
+    isTyping = false;
+  }
 
-                for (let i = 0; i < 10; i++) {
-                    const particle = document.createElement('div');
-                    particle.className = 'mini-confetti';
-                    const color = colors[Math.floor(Math.random() * colors.length)];
-                    particle.style.backgroundColor = color;
-                    particle.style.left = centerX + 'px';
-                    particle.style.top = centerY + 'px';
-                    const angle = Math.random() * 2 * Math.PI;
-                    const distance = 35 + Math.random() * 55;
-                    const dx = Math.cos(angle) * distance;
-                    const dy = Math.sin(angle) * distance - 25;
-                    particle.style.setProperty('--dx', dx + 'px');
-                    particle.style.setProperty('--dy', dy + 'px');
-                    document.body.appendChild(particle);
-                    setTimeout(() => {
-                        if (particle.parentNode) particle.remove();
-                    }, 1050);
-                }
-            }
+  function nextMessage(){
+    if (!typewriterDiv || msgIndex >= messages.length){
+      isTyping = false;
+      bookFooter.style.display = 'block';
+      fallingScraps();
+      return;
+    }
+    const isLast = msgIndex === messages.length - 1;
 
-            function throwConfetti() {
-                const colors = ['#e91e63','#f48fb1','#ffcc80','#ce93d8','#90caf9','#f06292','#ffab91'];
-                for (let i=0; i<55; i++) {
-                    const conf = document.createElement('div');
-                    conf.className = 'confetti-main';
-                    conf.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
-                    conf.style.left = Math.random()*100 + 'vw';
-                    conf.style.animationDuration = (Math.random()*2 + 2.5) + 's';
-                    document.body.appendChild(conf);
-                    setTimeout(() => { if(conf.parentNode) conf.remove(); }, 3800);
-                }
-            }
+    const typingEl = document.createElement('div');
+    typingEl.className = 'typing';
+    typingEl.innerHTML = 'flipping the page... <span class="typing-dots"><span></span><span></span><span></span></span>';
+    typewriterDiv.appendChild(typingEl);
+    typewriterDiv.scrollTop = typewriterDiv.scrollHeight;
 
-            function throwHearts() {
-                const hearts = ['❤️','💖','💕','💗','💝','💘','💞'];
-                for (let i=0; i<30; i++) {
-                    const heart = document.createElement('div');
-                    heart.className = 'heart-confetti';
-                    heart.textContent = hearts[Math.floor(Math.random()*hearts.length)];
-                    heart.style.left = Math.random()*100 + 'vw';
-                    heart.style.animationDuration = (Math.random()*2 + 3) + 's';
-                    heart.style.fontSize = (0.8 + Math.random()*1.2) + 'rem';
-                    document.body.appendChild(heart);
-                    setTimeout(() => { if(heart.parentNode) heart.remove(); }, 4500);
-                }
-            }
+    const delay = 550 + Math.random()*650;
+    setTimeout(() => {
+      if (typewriterDiv.contains(typingEl)) typewriterDiv.removeChild(typingEl);
+      typeMessage(messages[msgIndex], isLast, () => {
+        msgIndex++;
+        if (msgIndex < messages.length){
+          typingTimer = setTimeout(nextMessage, isLast ? 1800 : 1000);
+        } else {
+          nextMessage();
+        }
+      });
+    }, delay);
+  }
 
-            function openPopup() {
-                if (!popup) return;
-                popup.classList.add('active');
-                document.body.style.overflow = 'hidden';
-                if (closeBtn) closeBtn.focus();
-                throwConfetti();
-                throwHearts();
+  function typeMessage(text, isSpecial, callback){
+    if (!typewriterDiv) return;
+    const bubble = document.createElement('div');
+    bubble.className = 'message' + (isSpecial ? ' proposal' : '');
+    typewriterDiv.appendChild(bubble);
+    typewriterDiv.scrollTop = typewriterDiv.scrollHeight;
 
-                clearChat();
-                msgIndex = 0;
-                isTyping = false;
-                if (typewriterDiv) typewriterDiv.style.display = 'none';
-                if (loadingScreen) loadingScreen.style.display = 'flex';
-                if (progressFill) progressFill.style.width = '0%';
+    let i = 0;
+    function typeChar(){
+      if (i < text.length){
+        bubble.textContent += text.charAt(i);
+        i++;
+        typewriterDiv.scrollTop = typewriterDiv.scrollHeight;
+        const speed = isSpecial ? 45 + Math.random()*30 : 26 + Math.random()*30;
+        typingTimer = setTimeout(typeChar, speed);
+      } else {
+        miniConfetti(bubble);
+        if (callback) callback();
+      }
+    }
+    typeChar();
+  }
 
-                simulateLoading();
-            }
+  openBtn.addEventListener('click', openPopup);
+  closeBtn.addEventListener('click', closePopup);
+  closeBtn2.addEventListener('click', closePopup);
+  popup.addEventListener('click', (e) => { if (e.target === popup) closePopup(); });
+  window.addEventListener('keydown', (e) => { if (e.key === 'Escape' && popup.classList.contains('active')) closePopup(); });
+  musicToggle.addEventListener('click', toggleMusic);
 
-            function simulateLoading() {
-                let progress = 0;
-                const fill = document.getElementById('progressFill');
-                const interval = setInterval(() => {
-                    progress += Math.random() * 22 + 6;
-                    if (progress >= 100) {
-                        progress = 100;
-                        if (fill) fill.style.width = '100%';
-                        clearInterval(interval);
-                        setTimeout(() => {
-                            if (loadingScreen) loadingScreen.style.display = 'none';
-                            if (typewriterDiv) typewriterDiv.style.display = 'flex';
-                            if (!isTyping) {
-                                isTyping = true;
-                                nextMessage();
-                            }
-                        }, 500);
-                    } else {
-                        if (fill) fill.style.width = progress + '%';
-                    }
-                }, 280);
-            }
-
-            function closePopup() {
-                if (!popup) return;
-                popup.classList.remove('active');
-                document.body.style.overflow = '';
-                if (typingTimer) clearTimeout(typingTimer);
-                isTyping = false;
-                if (openBtn) openBtn.focus();
-            }
-
-            function clearChat() {
-                if (typewriterDiv) typewriterDiv.innerHTML = '';
-                if (typingTimer) {
-                    clearTimeout(typingTimer);
-                    typingTimer = null;
-                }
-                isTyping = false;
-            }
-
-            function nextMessage() {
-                if (!typewriterDiv || msgIndex >= messages.length) {
-                    isTyping = false;
-                    return;
-                }
-
-                const isLastMessage = msgIndex === messages.length - 1;
-                const isProposal = msgIndex === messages.length - 2;
-
-                const typingEl = document.createElement('div');
-                typingEl.className = 'typing';
-                typingEl.innerHTML = 'writing from the heart... <span class="typing-dots"><span></span><span></span><span></span></span>';
-                typewriterDiv.appendChild(typingEl);
-                typewriterDiv.scrollTop = typewriterDiv.scrollHeight;
-
-                const delay = 600 + Math.random() * 700;
-                setTimeout(() => {
-                    if (typewriterDiv.contains(typingEl)) {
-                        typewriterDiv.removeChild(typingEl);
-                    }
-                    typeMessage(messages[msgIndex], isProposal || isLastMessage, () => {
-                        msgIndex++;
-                        if (msgIndex < messages.length) {
-                            typingTimer = setTimeout(() => {
-                                nextMessage();
-                            }, isProposal ? 2000 : 1200);
-                        }
-                    });
-                }, delay);
-            }
-
-            function typeMessage(text, isSpecial, callback) {
-                if (!typewriterDiv) return;
-                const bubble = document.createElement('div');
-                bubble.className = 'message' + (isSpecial ? ' proposal' : '');
-                typewriterDiv.appendChild(bubble);
-                typewriterDiv.scrollTop = typewriterDiv.scrollHeight;
-
-                let i = 0;
-                function typeChar() {
-                    if (i < text.length) {
-                        bubble.textContent += text.charAt(i);
-                        i++;
-                        typewriterDiv.scrollTop = typewriterDiv.scrollHeight;
-                        const speed = isSpecial ? 50 + Math.random() * 30 : 28 + Math.random() * 32;
-                        typingTimer = setTimeout(typeChar, speed);
-                    } else {
-                        if (text.includes("will you marry me")) {
-                            playProposalChime();
-                            throwConfetti();
-                            throwHearts();
-                        } else if (text.includes("I love you. All of you. Always.")) {
-                            playProposalChime();
-                            throwHearts();
-                        } else {
-                            playMessageChime();
-                        }
-                        miniConfetti(bubble);
-                        if (callback) callback();
-                    }
-                }
-                typeChar();
-            }
-
-            openBtn.addEventListener('click', openPopup);
-            closeBtn.addEventListener('click', closePopup);
-            popup.addEventListener('click', (e) => { if (e.target === popup) closePopup(); });
-            window.addEventListener('keydown', (e) => { if (e.key === 'Escape' && popup.classList.contains('active')) closePopup(); });
-            musicToggle.addEventListener('click', toggleMusic);
-
-            window.addEventListener('beforeunload', () => {
-                if (typingTimer) clearTimeout(typingTimer);
-                if (eastsideAudio) eastsideAudio.pause();
-            });
-        })();
-    </script>
+  window.addEventListener('beforeunload', () => {
+    if (typingTimer) clearTimeout(typingTimer);
+    if (eastsideAudio) eastsideAudio.pause();
+  });
+})();
+</script>
 </body>
 </html>
